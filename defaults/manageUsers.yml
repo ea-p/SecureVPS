@@ -1,0 +1,17 @@
+user_vars: 
+  - username: ""
+    groups: ""
+    restrict_group: 
+    use_sudo:
+    create: 
+    delete: 
+    keyname:   
+
+# Usage: copy below block into user_vars, delete comments and populate:    
+# - username: ""      - Username of the user
+#   groups: ""        - All the groups the user should be part of
+#   append_group:     - 'no' - if to remove from all groups except from above | default 'yes'
+#   use_sudo:         - 'yes' - if user should be in sudoers group  
+#   create:           - 'absent' - if you want to delete user \ default 'present'
+#   delete:           - 'yes' - if you want to delete the user, needs 'create' to be no to work | default 'no'
+#   keyname:          - name of the pub key file as saved into github - must NOT be same as username

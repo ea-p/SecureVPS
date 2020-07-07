@@ -1,2 +1,4 @@
 ---
 # defaults file for SecureVPS
+- name: "Include user variables"
+  include: "manageUsers.yml"

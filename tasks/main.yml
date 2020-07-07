@@ -1,2 +1,30 @@
 ---
-# tasks file for SecureVPS
+- hosts: "basic"  
+  - name: "Baisc requirements"
+    include: "basic_prerequirements.yml"
+    tags: basic
+
+- hosts: "basic"    
+  - name: "Create initial users"
+    include: manageUsers.yml param= "{{ item }}"
+      with_items="{{ user_vars }}" 
+    ignore_errors: yes
+    meta: clear_host_errors  
+    tags: basic
+
+- hosts: "secured"    
+  - name: "Manage Users"
+    include: manageUsers.yml param= "{{ item }}"
+      with_items="{{ user_vars }}" 
+    ignore_errors: yes
+    meta: clear_host_errors  
+    tags: secured
+
+  - name: "Secure VPS 1"
+    include: "secureVPS1.yml"
+    tags: basic
+
+- hosts: "secured"
+  - name: "Secure VPS 2"
+    include: "secureVPS2.yml"
+    tags: secured
