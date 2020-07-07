@@ -1,4 +1,4 @@
-user_vars: 
+- user_vars: 
   - username: "admin"
     groups: "wheel"
     restrict_group: no
