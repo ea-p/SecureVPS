@@ -1,11 +1,11 @@
 ---
-- hosts: "basic"  
+- hosts: "basic"
   - name: "Baisc requirements"
     include: "basic_prerequirements.yml"
-    tags: 
+    tags:
       - basic
 
-- hosts: "basic"    
+- hosts: "basic"
   - name: "Create initial users"
     include: manageUsers.yml param= "{{ item }}"
       with_items="{{ user_vars }}" 
