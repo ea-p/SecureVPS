@@ -1,5 +1,5 @@
 ---
-    - hosts: localhost
-      remote_user: root
+    - hosts: basic
+ #     remote_user: root
       roles:
         - SecureVPS
