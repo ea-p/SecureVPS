@@ -14,7 +14,7 @@
       ignore_errors: yes
       tags: 
         - basic
-  - meta: clear_host_errors  
+    - meta: clear_host_errors  
 
 - hosts: "secured"    
   tasks:
