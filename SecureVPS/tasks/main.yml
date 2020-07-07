@@ -1,39 +1,35 @@
 ---
-- hosts: "basic"
-  tasks:
-    - name: "Basic requirements"
-      import_tasks: "basic_prerequirements.yml"
-      tags:
-        - basic
+- tasks:
+  - name: "Basic requirements"
+    import_tasks: "basic_prerequirements.yml"
+    tags:
+      - basic
 
-- hosts: "basic"
-  tasks:
-    - name: "Create initial users"
-      import_tasks: manageUsers.yml param= "{{ item }}"
-        with_items="{{ user_vars }}" 
-      ignore_errors: yes
-      tags: 
-        - basic
-    - meta: clear_host_errors  
+- tasks:
+  - name: "Create initial users"
+    import_tasks: manageUsers.yml param= "{{ item }}"
+      with_items="{{ user_vars }}" 
+    ignore_errors: yes
+    tags: 
+      - basic
+  - meta: clear_host_errors  
 
-- hosts: "secured"    
-  tasks:
-    - name: "Manage Users"
-      import_tasks: manageUsers.yml param= "{{ item }}"
-        with_items="{{ user_vars }}" 
-      ignore_errors: yes
-      tags: 
-        - secured
-    - meta: clear_host_errors  
+- tasks:
+  - name: "Manage Users"
+    import_tasks: manageUsers.yml param= "{{ item }}"
+      with_items="{{ user_vars }}" 
+    ignore_errors: yes
+    tags: 
+      - secured
+  - meta: clear_host_errors  
 
-    - name: "Secure VPS 1"
-      import_tasks: "secureVPS1.yml"
-      tags: 
-        - basic
+  - name: "Secure VPS 1"
+    import_tasks: "secureVPS1.yml"
+    tags: 
+      - basic
 
-- hosts: "secured"
-  tasks:
-    - name: "Secure VPS 2"
-      import_tasks: "secureVPS2.yml"
-      tags: 
-        - secured
+- tasks:
+  - name: "Secure VPS 2"
+    import_tasks: "secureVPS2.yml"
+    tags: 
+      - secured
