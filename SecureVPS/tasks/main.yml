@@ -13,7 +13,7 @@
 - meta: clear_host_errors  
 
 - name: "Manage Users"
-  include_tasks: manageUsers.yml param="{{ item }}"
+  include_tasks: manageUsers.yml
     with_items="{{ user_vars }}" 
   ignore_errors: yes
   tags: 
