@@ -1,11 +1,10 @@
 user_vars: 
-  - username: ""
-    groups: ""
-    restrict_group: 
-    use_sudo:
-    create: 
-    delete: 
-    keyname:   
+  - username: "admin"
+    groups: "wheel"
+    restrict_group: no
+    create: yes
+    delete: no
+    keyname: "../files/{{ user_vars.username }}.pub"  
 
 # Usage: copy below block into user_vars, delete comments and populate:    
 # - username: ""      - Username of the user
