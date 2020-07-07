@@ -1,14 +1,14 @@
 ---
 - name: "Add non-root user(s)"
   user:
-    name: "{{ item.username }}"
-    groups: "{{ item.groups }}"
-    append: "{{ item.append_groups }}"
-    state: "{{ item.create }}"
-    remove: "{{ item.delete }}"
+    name: "{{ managedUsers.username }}"
+    groups: "{{ managedUsers.groups }}"
+    append: "{{ managedUsers.append_groups }}"
+    state: "{{ managedUsers.create }}"
+    remove: "{{ managedUsers.delete }}"
 
 - name: "Set authorized keys taken from url"
   authorized_key:
-    user: "{{ item.username }}"
-    state: "{{ item.create }}"
-    key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ item.keyname }}.pub"
+    user: "{{ managedUsers.username }}"
+    state: "{{ managedUsers.create }}"
+    key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ managedUsers.keyname }}.pub"
