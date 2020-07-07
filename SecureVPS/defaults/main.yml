@@ -1,4 +1,13 @@
 ---
 # defaults file for SecureVPS
-- name: "Include user variables"
-  include: "manageUsers.yml"
+user_vars: 
+  - user1:
+    username: "admin"
+    groups: "wheel"
+    restrict_group: no
+    create: yes
+    delete: no
+    keyname: "../files/{{ user_vars.username }}.pub"  
+
+#- name: "Include user variables"
+#  include: "manageUsers.yml"
