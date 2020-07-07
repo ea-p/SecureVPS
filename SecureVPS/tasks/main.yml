@@ -12,9 +12,10 @@
       import_tasks: manageUsers.yml param= "{{ item }}"
         with_items="{{ user_vars }}" 
       ignore_errors: yes
-      meta: clear_host_errors  
       tags: 
         - basic
+  - name: "Clear any previous host errors"
+    meta: clear_host_errors  
 
 - hosts: "secured"    
   tasks:
@@ -22,9 +23,10 @@
       import_tasks: manageUsers.yml param= "{{ item }}"
         with_items="{{ user_vars }}" 
       ignore_errors: yes
-      meta: clear_host_errors  
       tags: 
         - secured
+    - name: "Clear any previous host errors"
+      meta: clear_host_errors  
 
     - name: "Secure VPS 1"
       import_tasks: "secureVPS1.yml"
