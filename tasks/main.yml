@@ -2,7 +2,8 @@
 - hosts: "basic"  
   - name: "Baisc requirements"
     include: "basic_prerequirements.yml"
-    tags: basic
+    tags: 
+      - basic
 
 - hosts: "basic"    
   - name: "Create initial users"
@@ -10,7 +11,8 @@
       with_items="{{ user_vars }}" 
     ignore_errors: yes
     meta: clear_host_errors  
-    tags: basic
+    tags: 
+      - basic
 
 - hosts: "secured"    
   - name: "Manage Users"
@@ -18,13 +20,16 @@
       with_items="{{ user_vars }}" 
     ignore_errors: yes
     meta: clear_host_errors  
-    tags: secured
+    tags: 
+      - secured
 
   - name: "Secure VPS 1"
     include: "secureVPS1.yml"
-    tags: basic
+    tags: 
+      - basic
 
 - hosts: "secured"
   - name: "Secure VPS 2"
     include: "secureVPS2.yml"
-    tags: secured
+    tags: 
+      - secured
