@@ -14,8 +14,7 @@
       ignore_errors: yes
       tags: 
         - basic
-  - name: "Clear any previous host errors"
-    meta: clear_host_errors  
+  - meta: clear_host_errors  
 
 - hosts: "secured"    
   tasks:
@@ -25,8 +24,7 @@
       ignore_errors: yes
       tags: 
         - secured
-    - name: "Clear any previous host errors"
-      meta: clear_host_errors  
+    - meta: clear_host_errors  
 
     - name: "Secure VPS 1"
       import_tasks: "secureVPS1.yml"
