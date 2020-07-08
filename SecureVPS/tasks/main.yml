@@ -1,6 +1,6 @@
 ---
 var:
-  managedUsers: "{{ user_vars }}"
+  - managedUsers: {{ user_vars }}
 - name: "Basic requirements"
   import_tasks: "basic_prerequirements.yml"
   tags:
@@ -9,7 +9,7 @@ var:
 - name: "Create initial users"
   include_tasks: manageUsers.yml
     vars:
-      managedUsers: "{{ user_vars }}"
+      managedUsers: {{ user_vars }}
   ignore_errors: yes
   tags: 
     - basic
@@ -18,7 +18,7 @@ var:
 - name: "Manage Users"
   include_tasks: manageUsers.yml
     vars:
-      managedUsers: "{{ user_vars }}"
+      managedUsers: {{ user_vars }}
   ignore_errors: yes
   tags: 
     - secured
