@@ -1,4 +1,6 @@
 ---
+var:
+  managedUsers: "{{ user_vars }}"
 - name: "Basic requirements"
   import_tasks: "basic_prerequirements.yml"
   tags:
