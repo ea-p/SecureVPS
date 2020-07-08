@@ -6,7 +6,7 @@ user_vars:
     append_group: yes
     create: present
     delete: no
-    keyname: "../files/1.pub" 
+    keyname: "1" 
 
 #- name: "Include user variables"
 #  include: "manageUsers.yml"
