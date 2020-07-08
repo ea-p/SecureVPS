@@ -1,12 +1,12 @@
 ---
 var:
   - managedUsers: {{ user_vars }}
-- name: "Basic requirements"
-  import_tasks: "basic_prerequirements.yml"
+- name: Basic requirements
+  import_tasks: basic_prerequirements.yml
   tags:
     - basic
 
-- name: "Create initial users"
+- name: Create initial users
   include_tasks: manageUsers.yml
     vars:
       managedUsers: {{ user_vars }}
@@ -15,7 +15,7 @@ var:
     - basic
 - meta: clear_host_errors  
 
-- name: "Manage Users"
+- name: Manage Users
   include_tasks: manageUsers.yml
     vars:
       managedUsers: {{ user_vars }}
@@ -24,12 +24,12 @@ var:
     - secured
 - meta: clear_host_errors  
 
-- name: "Secure VPS 1"
-  include_tasks: "secureVPS1.yml"
+- name: Secure VPS 1
+  include_tasks: secureVPS1.yml
   tags: 
     - basic
 
-- name: "Secure VPS 2"
-  include_tasks: "secureVPS2.yml"
+- name: Secure VPS 2
+  include_tasks: secureVPS2.yml
   tags: 
     - secured
