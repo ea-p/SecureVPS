@@ -6,8 +6,8 @@
 
 - name: Create initial users
   include_tasks: manageUsers.yml
-    vars:
-      managedUsers:'{{ user_vars }}'
+  vars:
+    managedUsers:'{{ user_vars }}'
   ignore_errors: yes
   tags: 
     - basic
@@ -15,8 +15,8 @@
 
 - name: Manage Users
   include_tasks: manageUsers.yml
-    vars:
-      managedUsers:'{{ user_vars }}'
+  vars:
+    managedUsers:'{{ user_vars }}'
   ignore_errors: yes
   tags: 
     - secured
