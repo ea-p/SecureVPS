@@ -5,9 +5,8 @@
     - basic
 
 - name: Create initial users
-  import_tasks: manageUsers.yml
-  vars:
-    - managedUsers: '{{ user_vars }}'
+  import_tasks: manageUsers.yml 
+  with_items: '{{ user_vars }}'
   ignore_errors: yes
   tags: 
     - basic
@@ -15,8 +14,7 @@
 
 - name: Manage Users
   import_tasks: manageUsers.yml
-  vars:
-    - managedUsers: '{{ user_vars }}'
+  with_items: '{{ user_vars }}'
   ignore_errors: yes
   tags: 
     - secured
