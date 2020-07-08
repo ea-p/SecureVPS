@@ -1,11 +1,11 @@
 ---
-var:
-  - managedUsers: '{{ user_vars }}'
-- import_tasks: basic_prerequirements.yml
+- name: Basic requirements
+  import_tasks: basic_prerequirements.yml
   tags:
     - basic
 
-- include_tasks: manageUsers.yml
+- name: Create initial users
+  include_tasks: manageUsers.yml
     vars:
       managedUsers:'{{ user_vars }}'
   ignore_errors: yes
@@ -13,7 +13,8 @@ var:
     - basic
 - meta: clear_host_errors  
 
-- include_tasks: manageUsers.yml
+- name: Manage Users
+  include_tasks: manageUsers.yml
     vars:
       managedUsers:'{{ user_vars }}'
   ignore_errors: yes

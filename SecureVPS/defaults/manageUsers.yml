@@ -1,6 +1,5 @@
 user_vars: 
-  - user1:
-    username: "admin"
+  - username: "admin"
     groups: "wheel"
     restrict_group: no
     create: yes
