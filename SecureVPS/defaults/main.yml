@@ -18,9 +18,5 @@ user_vars:
 #   delete:           - 'yes' - if you want to delete the user, needs 'create' to be no to work | default 'no'
 #   keyname:          - name of the pub key file as saved into github - must NOT be same as username
 
-
-#- name: "Include user variables"
-#  include: "manageUsers.yml"
-
 # Set the custom ssh port here - carefull, this needs to be changed in inventory as well after.
 ssh_port: 9212
