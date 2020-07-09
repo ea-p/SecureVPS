@@ -2,26 +2,27 @@
 - hosts: basic
   vars:
     user_vars: 
-      - username: "admin"
-        groups: "wheel"
-        append_group: yes
-        create: present
-        delete: no
-        keyname: "1" 
+      - user1:
+          username: "admin"
+          groups: "wheel"
+          append_group: yes
+          create: present
+          delete: no
+          keyname: "1" 
     
   tasks:
     - name: "Add non-root user(s)"
       user:
-        name: "{{ user_vars.username }}"
-        groups: "{{ user_vars.groups }}"
-        append: "{{ user_vars.append_groups }}"
-        state: "{{ user_vars.create }}"
-        remove: "{{ user_vars.delete }}"
+        name: "{{ user_vars.user1.username }}"
+        groups: "{{ user_vars.user1.groups }}"
+        append: "{{ user_vars.user1.append_groups }}"
+        state: "{{ user_vars.user1.create }}"
+        remove: "{{ user_vars.user1.delete }}"
       tags: basic
     
     - name: "Set authorized keys taken from url"
       authorized_key:
-        user: "{{ user_vars.username }}"
-        state: "{{ user_vars.create }}"
-        key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ user_vars.keyname }}.pub"
+        user: "{{ user_vars.user1.username }}"
+        state: "{{ user_vars.user1.create }}"
+        key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ user_vars.user1.keyname }}.pub"
       tags: basic
