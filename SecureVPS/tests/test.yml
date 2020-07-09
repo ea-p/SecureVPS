@@ -4,9 +4,9 @@
     user_vars: 
       username: "admin"
       groups: "wheel"
-      append_group: yes
+      append_group: "yes"
       create: present
-      delete: no
+      delete: "no"
       keyname: "1" 
     
   tasks:
