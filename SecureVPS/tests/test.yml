@@ -4,9 +4,9 @@
     user_vars: 
       username: "admin"
       groups: "wheel"
-      append_group: "yes"
+      append_group: yes
       create: present
-      delete: "no"
+      delete: no
       keyname: "1" 
     
   tasks:
@@ -14,7 +14,7 @@
       user:
         name: "{{ item.username }}"
         groups: "{{ item.groups }}"
-        append: "{{ item.append_groups }}"
+        append: "{{ item.append_group }}"
         state: "{{ item.create }}"
         remove: "{{ item.delete }}"
       with_items: 
