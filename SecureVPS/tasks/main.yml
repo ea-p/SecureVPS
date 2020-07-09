@@ -20,8 +20,8 @@
     - secured
 - meta: clear_host_errors  
 
-- name: Secure VPS 1
-  include_tasks: secureVPS1.yml
+- name: Set Custom ssh Settings
+  include_tasks: customSshSettings.yml
   tags: 
     - basic
 
