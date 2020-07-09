@@ -2,7 +2,7 @@
 - name: "Change ssh port"
   lineinfile:
     dest: "/etc/ssh/sshd_config"
-    regexp: "#^Port|^Port"
+    regexp: "(#^Port)|(^Port)"
     line: "Port {{ ssh_port }}"
   notify: "Restart sshd"
   tag: 
@@ -11,7 +11,7 @@
 - name: "Disable remote root login"
   lineinfile:
     dest: "/etc/ssh/sshd_config"
-    regexp: "^#?PermitRootLogin|^?PermitRootLogin"
+    regexp: "^(#?PermitRootLogin)|(^?PermitRootLogin)"
     line: "PermitRootLogin no"
   notify: "Restart sshd"
   tag: 
@@ -20,7 +20,7 @@
 - name: "Disable password login"
   lineinfile:
     dest: "/etc/ssh/sshd_config"
-    regexp: "^#?PasswordAuthentication|^?PasswordAuthentication"
+    regexp: "(^#?PasswordAuthentication)|(^?PasswordAuthentication)"
     line: "PasswordAuthentication no"
   notify: "Restart sshd"
   tag: 
