@@ -21,3 +21,6 @@ user_vars:
 
 #- name: "Include user variables"
 #  include: "manageUsers.yml"
+
+# Set the custom ssh port here - carefull, this needs to be changed in inventory as well after.
+ssh_port: 9212
