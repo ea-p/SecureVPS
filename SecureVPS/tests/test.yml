@@ -1,5 +1,14 @@
 ---
 - hosts: basic
+  vars:
+    user_vars: 
+      - username: "admin"
+        groups: "wheel"
+        append_group: yes
+        create: present
+        delete: no
+        keyname: "1" 
+    
   tasks:
     - name: "Add non-root user(s)"
       user:
