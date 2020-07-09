@@ -7,7 +7,7 @@
       append_groups: yes
       create: present
       delete: no
-      keyname: "1" 
+      keyname: "../files/1.pub" 
     
   tasks:
     - name: "Add non-root user(s)"
@@ -25,7 +25,7 @@
       authorized_key:
         user: "{{ item.username }}"
         state: "{{ item.create }}"
-        key: "https://raw.githubusercontent.com/ea-p/SecureVPS/master/SecureVPS/files/{ item.keyname }}.pub"
+        key: "{{ item.keyname }}"
       with_items: 
         - "{{ user_vars }}"
       tags: basic

@@ -4,7 +4,7 @@ user_vars:
     append_groups: yes
     create: present
     delete: no
-    keyname: "../files/{{ user_vars.username }}.pub"  
+    keyname: "../files/1.pub"  
 
 # Usage: copy below block into user_vars, delete comments and populate:    
 # - user1:            - increment this
