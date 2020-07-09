@@ -1,18 +1,18 @@
 ---
 - hosts: basic
-- tasks:
-  - name: "Add non-root user(s)"
-    user:
-      name: "{{ username }}"
-      groups: "{{ groups }}"
-      append: "{{ append_groups }}"
-      state: "{{ create }}"
-      remove: "{{ delete }}"
+  - tasks:
+    - name: "Add non-root user(s)"
+      user:
+        name: "{{ username }}"
+        groups: "{{ groups }}"
+        append: "{{ append_groups }}"
+        state: "{{ create }}"
+        remove: "{{ delete }}"
       tags: basic
     
-  - name: "Set authorized keys taken from url"
-    authorized_key:
-      user: "{{ username }}"
-      state: "{{ create }}"
-      key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ keyname }}.pub"
-    tags: basic
+    - name: "Set authorized keys taken from url"
+      authorized_key:
+        user: "{{ username }}"
+        state: "{{ create }}"
+        key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ keyname }}.pub"
+      tags: basic
