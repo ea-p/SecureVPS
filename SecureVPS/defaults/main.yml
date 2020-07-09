@@ -3,7 +3,7 @@
 user_vars: 
   - username: "admin"
     groups: "wheel"
-    append_group: yes
+    append_groups: yes
     create: present
     delete: no
     keyname: "1" 

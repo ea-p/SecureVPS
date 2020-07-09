@@ -4,7 +4,7 @@
     user_vars: 
       username: "admin"
       groups: "wheel"
-      append_group: yes
+      append_groups: yes
       create: present
       delete: no
       keyname: "1" 
@@ -14,7 +14,7 @@
       user:
         name: "{{ item.username }}"
         groups: "{{ item.groups }}"
-        append: "{{ item.append_group }}"
+        append: "{{ item.append_groups }}"
         state: "{{ item.create }}"
         remove: "{{ item.delete }}"
       with_items: 
@@ -25,7 +25,7 @@
       authorized_key:
         user: "{{ item.username }}"
         state: "{{ item.create }}"
-        key: "https://github.com/ea-p/SecureVPS/blob/master/SecureVPS/files/{ item.keyname }}.pub"
+        key: "https://github.com/ea-p/SecureVPS/tree/master/files/{ item.keyname }}.pub"
       with_items: 
         - "{{ user_vars }}"
       tags: basic

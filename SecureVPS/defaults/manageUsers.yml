@@ -1,7 +1,7 @@
 user_vars: 
   - username: "admin"
     groups: "wheel"
-    append_group: yes
+    append_groups: yes
     create: present
     delete: no
     keyname: "../files/{{ user_vars.username }}.pub"  
