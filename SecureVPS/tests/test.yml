@@ -18,7 +18,7 @@
         state: "{{ item.create }}"
         remove: "{{ item.delete }}"
       with_items: 
-        - {{ user_vars }}
+        - "{{ user_vars }}"
       tags: basic
     
     - name: "Set authorized keys taken from url"
@@ -27,5 +27,5 @@
         state: "{{ item.create }}"
         key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ item.keyname }}.pub"
       with_items: 
-        - {{ user_vars }}
+        - "{{ user_vars }}"
       tags: basic
