@@ -3,16 +3,16 @@
   tasks:
     - name: "Add non-root user(s)"
       user:
-        name: "{{ username }}"
-        groups: "{{ groups }}"
-        append: "{{ append_groups }}"
-        state: "{{ create }}"
-        remove: "{{ delete }}"
+        name: "{{ user_vars.username }}"
+        groups: "{{ user_vars.groups }}"
+        append: "{{ user_vars.append_groups }}"
+        state: "{{ user_vars.create }}"
+        remove: "{{ user_vars.delete }}"
       tags: basic
     
     - name: "Set authorized keys taken from url"
       authorized_key:
-        user: "{{ username }}"
-        state: "{{ create }}"
-        key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ keyname }}.pub"
+        user: "{{ user_vars.username }}"
+        state: "{{ user_vars.create }}"
+        key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ user_vars.keyname }}.pub"
       tags: basic
