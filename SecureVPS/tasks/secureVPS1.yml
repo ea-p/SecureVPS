@@ -5,7 +5,7 @@
     regexp: "^(#|\\s*)Port"
     line: "Port {{ ssh_port }}"
   notify: "Restart sshd"
-  tag: 
+  tags: 
     - basic
 
 - name: "Disable remote root login"
@@ -14,7 +14,7 @@
     regexp: "^(#|\\s*)PermitRootLogin"
     line: "PermitRootLogin no"
   notify: "Restart sshd"
-  tag: 
+  tags: 
     - basic
 
 - name: "Disable password login"
@@ -23,6 +23,6 @@
     regexp: "(#|\\s*)PasswordAuthentication"
     line: "PasswordAuthentication no"
   notify: "Restart sshd"
-  tag: 
+  tags: 
     - basic
   
