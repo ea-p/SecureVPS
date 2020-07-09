@@ -12,5 +12,5 @@
   authorized_key:
     user: "{{ username }}"
     state: "{{ create }}"
-    key: "https://github.com/ea-p/SecureVPS/tree/master/files/{{ keyname }}.pub"
+    key: "https://raw.githubusercontent.com/ea-p/SecureVPS/master/SecureVPS/files/{{ keyname }}.pub"
   tags: basic, secured
