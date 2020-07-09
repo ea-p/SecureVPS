@@ -1,16 +1,16 @@
 ---
 - name: "Add non-root user(s)"
   user:
-    name: "{{ username }}"
-    groups: "{{ groups }}"
-    append: "{{ append_groups }}"
-    state: "{{ create }}"
-    remove: "{{ delete }}"
+    name: "{{ item.username }}"
+    groups: "{{ item.groups }}"
+    append: "{{ item.append_groups }}"
+    state: "{{ item.create }}"
+    remove: "{{ item.delete }}"
   tags: basic, secured
 
-- name: "Set authorized keys taken from url"
+- name: "Set authorized keys"
   authorized_key:
-    user: "{{ username }}"
-    state: "{{ create }}"
-    key: "https://raw.githubusercontent.com/ea-p/SecureVPS/master/SecureVPS/files/{{ keyname }}.pub"
+    user: "{{ item.username }}"
+    state: "{{ item.create }}"
+    key: "{{ item.keyname }}"
   tags: basic, secured
