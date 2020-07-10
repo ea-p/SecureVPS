@@ -4,7 +4,6 @@
   service:
     name: "sshd"
     state: "restarted"
-  become: yes
   tags:
     - basic
   
@@ -14,7 +13,7 @@
     state: "restarted"
   become: yes
   tags:
-    - basic
+    - secured
   
 - name: "Restart firewalld"
   service:
@@ -22,4 +21,4 @@
     state: "restarted"
   become: yes
   tags:
-    - basic
+    - secured
