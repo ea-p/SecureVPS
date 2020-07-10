@@ -10,7 +10,7 @@
 
 - name: "Configure fail2ban"
   template:
-    src: jail.local.js
+    src: jail.local.j2
     dest: /etc/fail2ban/
   become: yes
   become_user: "root"
