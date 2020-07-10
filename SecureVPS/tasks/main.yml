@@ -18,6 +18,8 @@
     regexp: "^%wheel"
     line: "%wheel  ALL=(ALL)       NOPASSWD: ALL"
     validate: 'visudo -cf %s'
+  tags: 
+    - basic
 
 - name: Manage Users
   include_tasks: manageUsers.yml

@@ -4,14 +4,16 @@
     name: fail2ban
     state: latest
   become: true
-  tags: secured
+  tags: 
+    - secured
 
 - name: "Configure fail2ban"
   template:
     src: jail.local.js
     dest: /etc/fail2ban/
   become: true
-  tags: secured
+  tags: 
+    - secured
   notify: "Restart fail2ban"
 
 - name: Install firewalld
@@ -19,9 +21,12 @@
     name: firewalld
     state: latest
   become: true
-  tags: secured
+  tags: 
+    - secured
 
 - name: "Configure firewalld"
   include_task: configureFirewalld.yml
   with_items: ' {{ firewalld_settings }}'
   notify: "Restart firewalld"
+  tags: 
+    - secured

@@ -2,20 +2,28 @@
     yum:
       name: "dnf"
       state: "latest"
+    tags: 
+      - basic
   
   - name: "Update OS"
     dnf:
       name: "*"
       state: "latest"
+    tags: 
+      - basic
   
   - name: "Install EPEL repo"
     dnf: 
 # might be a variable
       name: " https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
       state: "latest"
+    tags: 
+      - basic
     ignore_errors: no
 
 # only needed for EPEL v8
   - name: "Activate PowerTools repo"  
     command: "dnf config-manager --set-enabled PowerTools"
     ignore_errors: no
+    tags: 
+      - basic
