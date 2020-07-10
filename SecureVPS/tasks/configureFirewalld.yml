@@ -3,6 +3,7 @@
     permanent: "{{ item.permanent }}"
     state: "{{ item.state }}"
   become: true
+  become_user: "root"
   notify: "Restart firewalld"
   tags: 
     - secured

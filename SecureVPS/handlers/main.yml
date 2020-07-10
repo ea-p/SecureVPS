@@ -12,6 +12,7 @@
     name: "fail2ban"
     state: "restarted"
   become: yes
+  become_user: "root"
   tags:
     - secured
   
@@ -20,5 +21,6 @@
     name: "firewalld"
     state: "restarted"
   become: yes
+  become_user: "root"
   tags:
     - secured
