@@ -1,0 +1,4 @@
+- firewalld:
+    port: "{{ item.port }}"
+    permanent: "{{ item.permanent }}"
+    state: "{{ item.state }}"

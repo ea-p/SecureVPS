@@ -4,4 +4,18 @@
     name: fail2ban
     state: latest
 
-- name: Configure fail2ban
+- name: "Configure fail2ban"
+  template:
+    src: jail.local.js
+    dest: /etc/fail2ban/
+  notify: "Restart fail2ban"
+
+- name: Install firewalld
+  dnf:
+    name: firewalld
+    state: latest
+
+- name: "Configure firewalld"
+  include_task: configureFirewalld.yml
+  with_items: ' {{ firewalld_settings }}'
+  notify: "Restart firewalld"

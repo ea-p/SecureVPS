@@ -4,3 +4,16 @@
   service:
     name: "sshd"
     state: "restarted"
+  become: yes
+
+- name: "Restart fail2ban"
+  service:
+    name: "fail2ban"
+    state: "restarted"
+  become: yes
+
+- name: "Restart firewalld"
+  service:
+    name: "firewalld"
+    state: "restarted"
+  become: yes

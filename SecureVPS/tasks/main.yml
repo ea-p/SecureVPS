@@ -16,12 +16,13 @@
   lineinfile:
     dest: /etc/sudoers
     regexp: "^%wheel"
-    line: "%wheel  ALL=(ALL)       NOPASSWD:ALL"
+    line: "%wheel  ALL=(ALL)       NOPASSWD: ALL"
     validate: 'visudo -cf %s'
 
 - name: Manage Users
   include_tasks: manageUsers.yml
   with_items: '{{ user_vars }}'
+  become: true
   ignore_errors: yes
   tags: 
     - secured
@@ -34,5 +35,6 @@
 
 - name: Some Extra Security
   include_tasks: extraSecurity.yml.yml
+  become: true
   tags: 
     - secured

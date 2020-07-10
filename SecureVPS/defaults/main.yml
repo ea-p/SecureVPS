@@ -20,3 +20,13 @@ user_vars:
 
 # Set the custom ssh port here - carefull, this needs to be changed in inventory as well after.
 ssh_port: 9212
+
+fail2ban_safe_ip: 89.136.51.36
+fail2ban_bantime: "30m"
+fail2ban_findtime: "2m"
+fail2ban_maxretry: "3"
+
+firewalld_settings:
+  - port: "{{ ssh_port }}/tcp"
+    permanent: yes
+    state: enabled

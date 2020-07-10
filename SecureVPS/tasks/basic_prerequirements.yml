@@ -13,9 +13,9 @@
 # might be a variable
       name: " https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
       state: "latest"
-    ignore_errors: yes
+    ignore_errors: no
 
 # only needed for EPEL v8
   - name: "Activate PowerTools repo"  
     command: "dnf config-manager --set-enabled PowerTools"
-    ignore_errors: yes
+    ignore_errors: no
