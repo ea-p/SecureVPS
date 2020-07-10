@@ -1,10 +1,10 @@
 ---
 # handlers file for SecureVPS
-- name: "Restart sshd"
-  service:
-    name: "sshd"
-    state: "restarted"
-  become: yes
+#- name: "Restart sshd"
+#  service:
+#    name: "sshd"
+#    state: "restarted"
+#  become: yes
 
 - name: "Restart fail2ban"
   service:
