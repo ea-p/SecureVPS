@@ -6,6 +6,7 @@
     append: "{{ item.append_groups }}"
     state: "{{ item.create }}"
     remove: "{{ item.delete }}"
+  become: true
   tags: basic, secured
 
 - name: "Set authorized keys"
@@ -13,4 +14,5 @@
     user: "{{ item.username }}"
     state: "{{ item.create }}"
     key: "{{ item.keyname }}"
+  become: true
   tags: basic, secured

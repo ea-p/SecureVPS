@@ -2,3 +2,5 @@
     port: "{{ item.port }}"
     permanent: "{{ item.permanent }}"
     state: "{{ item.state }}"
+  become: true
+  tags: secured

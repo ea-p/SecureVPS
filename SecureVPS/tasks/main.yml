@@ -22,7 +22,6 @@
 - name: Manage Users
   include_tasks: manageUsers.yml
   with_items: '{{ user_vars }}'
-  become: true
   ignore_errors: yes
   tags: 
     - secured
@@ -35,6 +34,5 @@
 
 - name: Some Extra Security
   include_tasks: extraSecurity.yml.yml
-  become: true
   tags: 
     - secured

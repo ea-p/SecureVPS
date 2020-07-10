@@ -3,17 +3,23 @@
   dnf:
     name: fail2ban
     state: latest
+  become: true
+  tags: secured
 
 - name: "Configure fail2ban"
   template:
     src: jail.local.js
     dest: /etc/fail2ban/
+  become: true
+  tags: secured
   notify: "Restart fail2ban"
 
 - name: Install firewalld
   dnf:
     name: firewalld
     state: latest
+  become: true
+  tags: secured
 
 - name: "Configure firewalld"
   include_task: configureFirewalld.yml
