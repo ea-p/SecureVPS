@@ -4,6 +4,7 @@
     name: fail2ban
     state: latest
   become: yes
+  become_user: "root"
   tags: 
     - secured
 
@@ -12,6 +13,7 @@
     src: jail.local.js
     dest: /etc/fail2ban/
   become: yes
+  become_user: "root"
   tags: 
     - secured
   notify: "Restart fail2ban"
@@ -21,6 +23,7 @@
     name: firewalld
     state: latest
   become: yes
+  become_user: "root"
   tags: 
     - secured
 
