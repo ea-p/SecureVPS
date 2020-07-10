@@ -12,6 +12,13 @@
     - basic
 - meta: clear_host_errors  
 
+- name: Allow sudo users to sudo without a password
+  lineinfile:
+    dest: /etc/sudoers
+    regexp: "^%wheel"
+    line: "%wheel  ALL=(ALL)       NOPASSWD:ALL"
+    validate: 'visudo -cf %s'
+
 - name: Manage Users
   include_tasks: manageUsers.yml
   with_items: '{{ user_vars }}'
@@ -25,7 +32,7 @@
   tags: 
     - basic
 
-- name: Secure VPS 2
-  include_tasks: secureVPS2.yml
+- name: Some Extra Security
+  include_tasks: extraSecurity.yml.yml
   tags: 
     - secured

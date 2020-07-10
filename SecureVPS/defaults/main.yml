@@ -16,7 +16,7 @@ user_vars:
 #   use_sudo:         - 'yes' - if user should be in sudoers group  
 #   create:           - 'absent' - if you want to delete user \ default 'present'
 #   delete:           - 'yes' - if you want to delete the user, needs 'create' to be no to work | default 'no'
-#   keyname:          - name of the pub key file as saved into github - must NOT be same as username
+#   keyname:          - Public key of the user
 
 # Set the custom ssh port here - carefull, this needs to be changed in inventory as well after.
 ssh_port: 9212
