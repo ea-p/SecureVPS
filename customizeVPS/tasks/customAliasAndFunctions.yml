@@ -1,13 +1,13 @@
 - name: "Clone the source repo"
   git:
     repo: "https://github.com/ea-p/bashrc.git"
-    dest: "/tmp/"
+    dest: "/tmp/gitalias"
   tags: 
     - secured
 
 - name: "Copy the customAliasAndFunctions.sh to /etc/profile.d/"
   copy:
-    src: "/tmp/bashrc/customAliasAndFunctions.sh"
+    src: "/tmp/gitalias/bashrc/customAliasAndFunctions.sh"
     dest: "/etc/profile.d/customAliasAndFunctions.sh"
     remote_src: yes
   tags: 
@@ -15,7 +15,7 @@
 
 - name: "Delete tmp files."
   file:
-    path: "/tmp/bashrc"
+    path: "/tmp/gitalias"
     state: "absent"
   tags: 
     - secured
