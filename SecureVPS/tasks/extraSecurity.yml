@@ -3,7 +3,7 @@
   dnf:
     name: fail2ban
     state: latest
-  become: true
+  become: yes
   tags: 
     - secured
 
@@ -11,7 +11,7 @@
   template:
     src: jail.local.js
     dest: /etc/fail2ban/
-  become: true
+  become: yes
   tags: 
     - secured
   notify: "Restart fail2ban"
@@ -20,7 +20,7 @@
   dnf:
     name: firewalld
     state: latest
-  become: true
+  become: yes
   tags: 
     - secured
 
