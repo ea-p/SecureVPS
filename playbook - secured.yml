@@ -1,0 +1,4 @@
+
+    - hosts: secured
+      roles:
+      - SecureVPS
