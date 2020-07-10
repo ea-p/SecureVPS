@@ -25,7 +25,7 @@
     - secured
 
 - name: "Configure firewalld"
-  include_task: configureFirewalld.yml
+  include_tasks: configureFirewalld.yml
   with_items: ' {{ firewalld_settings }}'
   tags: 
     - secured
