@@ -2,4 +2,5 @@
 # defaults file for customizeVPS
 tools:
     - nano
+    - git
 
