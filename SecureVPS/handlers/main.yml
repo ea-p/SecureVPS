@@ -1,6 +1,7 @@
 ---
 # handlers file for SecureVPS
-#- name: "Restart sshd"
+- name: "Restart sshd"
+  ping: 
 #  service:
 #    name: "sshd"
 #    state: "restarted"

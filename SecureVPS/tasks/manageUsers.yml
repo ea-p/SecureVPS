@@ -7,7 +7,9 @@
     state: "{{ item.create }}"
     remove: "{{ item.delete }}"
   become: true
-  tags: basic, secured
+  tags: 
+    - basic
+    - secured
 
 - name: "Set authorized keys"
   authorized_key:
@@ -15,4 +17,6 @@
     state: "{{ item.create }}"
     key: "{{ item.keyname }}"
   become: true
-  tags: basic, secured
+  tags: 
+    - basic
+    - secured
