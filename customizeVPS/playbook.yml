@@ -1,0 +1,6 @@
+---
+- hosts: secured
+  roles:
+    - customizeVPS
+  tags: 
+    - secured

@@ -1,0 +1,17 @@
+---
+# tasks file for customizeVPS
+- name: "Install all tools used"
+  dnf:
+    name: "{{ item }}"
+    state: "present"
+  with_items: "{{ tools }}"
+  tags: 
+    - secured
+
+- name: "Set the custom aliases and functions"
+  include_tasks: customAliasAndFunctions.yml
+  tags: 
+    - secured
+
+
+     
