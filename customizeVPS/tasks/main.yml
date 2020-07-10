@@ -4,6 +4,8 @@
   dnf:
     name: "{{ item }}"
     state: "present"
+  become: yes
+  become_user: "root"
   with_items: "{{ tools }}"
   tags: 
     - secured
