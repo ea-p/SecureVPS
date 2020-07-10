@@ -3,4 +3,6 @@
     permanent: "{{ item.permanent }}"
     state: "{{ item.state }}"
   become: true
-  tags: secured
+  notify: "Restart firewalld"
+  tags: 
+    - secured

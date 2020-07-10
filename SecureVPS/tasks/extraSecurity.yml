@@ -27,6 +27,5 @@
 - name: "Configure firewalld"
   include_task: configureFirewalld.yml
   with_items: ' {{ firewalld_settings }}'
-  notify: "Restart firewalld"
   tags: 
     - secured
