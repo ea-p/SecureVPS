@@ -1,7 +1,7 @@
 - name: "Clone the source repo"
   git:
     repo: "https://github.com/ea-p/bashrc.git"
-    dest: "/tmp"
+    dest: "/tmp/"
   tags: 
     - secured
 
