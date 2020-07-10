@@ -38,6 +38,6 @@
     - basic
 
 - name: Some Extra Security
-  include_tasks: extraSecurity.yml.yml
+  include_tasks: extraSecurity.yml
   tags: 
     - secured
