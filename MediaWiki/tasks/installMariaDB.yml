@@ -1,4 +1,0 @@
-- name: Install the server
-  dnf:
-    name: "@mariadb-server:5.1/default"
-    state: present

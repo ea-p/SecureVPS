@@ -11,11 +11,11 @@
     - mediawiki
 
 - name: "Install MariaDB"
-  include_tasks: installMariaDB.yml
+  include_role: ansible-role-mysql
   apply:
     tags:
-        - secured
-        - mediawiki
+      - secured
+      - mediawiki
   tags: 
     - secured
     - mediawiki
