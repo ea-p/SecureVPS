@@ -1,0 +1,32 @@
+---
+# tasks file for MediaWiki
+- name: "Install prerequisits"
+  include_tasks: prerequisites.yml
+  apply:
+    tags:
+        - secured
+        - mediawiki
+  tags: 
+    - secured
+    - mediawiki
+
+- name: "Install MariaDB"
+  include_tasks: installMariaDB.yml
+  apply:
+    tags:
+        - secured
+        - mediawiki
+  tags: 
+    - secured
+    - mediawiki
+
+- name: "Install Apache 2.4.35+"
+  include_tasks: installApache.yml
+  apply:
+    tags:
+        - secured
+        - mediawiki
+  tags: 
+    - secured
+    - mediawiki
+  
