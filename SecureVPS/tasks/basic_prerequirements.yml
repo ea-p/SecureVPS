@@ -13,10 +13,10 @@
       - basic
   
   - name: "Install EPEL repo"
-    dnf: 
-# might be a variable
-      name: " https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm"
-      state: "latest"
+    include_role: ansible-role-repo-epel
+    apply:
+      tags:
+        - basic
     tags: 
       - basic
     ignore_errors: no
