@@ -21,7 +21,7 @@
     - mediawiki
 
 - name: "Install Apache 2.4.35+"
-  include_tasks: installApache.yml
+  include_role: ansible-role-apache
   apply:
     tags:
         - secured

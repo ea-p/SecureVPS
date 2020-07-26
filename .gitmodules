@@ -7,3 +7,6 @@
 [submodule "ansible-role-repo-remi"]
 	path = ansible-role-repo-remi
 	url = https://github.com/ea-p/ansible-role-repo-remi.git
+[submodule "ansible-role-apache"]
+	path = ansible-role-apache
+	url = https://github.com/ea-p/ansible-role-apache.git
