@@ -1,5 +1,56 @@
 
     - hosts: secured
+      vars:
+        #mysql memory settings
+        mysql_key_buffer_size: "1024M"
+        mysql_max_allowed_packet: "512M"
+        mysql_table_open_cache: "1024"
+        mysql_sort_buffer_size: "4M"
+        mysql_read_buffer_size: "4M"
+        mysql_read_rnd_buffer_size: "16M"
+        mysql_myisam_sort_buffer_size: "512M"  
+        mysql_query_cache_size: "64M"
+        mysql_query_cache_limit: "4M"
+        mysql_max_connections: "604"
+        mysql_tmp_table_size: "64M"
+        mysql_max_heap_table_size: "64M"
+        mysql_group_concat_max_len: "4096"
+        #apache variables
+        apache_enablerepo: ""
+        apache_create_vhosts: false
+        #Users
+        user_vars: 
+          - username: "admin"
+            groups: "wheel"
+            append_groups: yes
+            create: present
+            delete: no
+            keyname: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDeb5V84olbvd3UNfKyIogiqkLkUbBSXkaZNg70dMzLPc4AFadmibVDjXyTeuT+Z//YZ0BYlRyDlOIU0Nbg/M+6JlUaRoZeZrC62bF+0p8voAwWVimlFJhgHLNvdX8cs3M+jRz/aZF//Rg3NIHJN95d83mX1S49TCeK992L+t4e+s6NjAJ9SGeqqLyMxEQ1xn4bq/RTfxr81L3b3m9+99mIB5JH1z4LW2mOFn5K7VqSRS5SFJT5ppV5Irr9IgOa51AG0qHRdDu2Dz1g46QZsPgR4BND4WgvacymMifN0Kjf8No4MCPRs2vkhIqRBlETl7nPTqX+G1FOExycGe0yK+LXUPetsjVk1ohF6pR05TX6PCc6pBildWMq6MMEwhsi2nJNEEPtsZnVd7capEyYhP9bwP6oaBO+YmUUvtBLH74OpD7QmeWzEHbG/iw4CT/xWN7gAEGkGb4Vh8hwQElg7cSBONK8Z03Qm1ivgn06zsUyfAQMpP6Q7658kH0yrufLHdoqhqrT19BgBdOvk8Tn6HNpszQVBWlORHb+hYRnDng2MMK0tHQwh2TJXG4vSfNbOoSMrAfQ8Xz+L3q9LxnwCW0Uubdvvt7sk+cWGOBisRtu7EYTfL0wWQiIyzRAPlCnSY6AD/Jtqfk1edfAxoaUcG2H1rWX8KeHEGO/okAdwzkkCw== root@DESKTOP-B7CFONR" 
+        
+        # Usage: copy below block into user_vars, delete comments and populate:    
+        # - user1:            - increment this
+        #   username: ""      - Username of the user
+        #   groups: ""        - All the groups the user should be part of
+        #   append_group:     - 'no' - if to remove from all groups except from above | default 'yes'
+        #   use_sudo:         - 'yes' - if user should be in sudoers group  
+        #   create:           - 'absent' - if you want to delete user \ default 'present'
+        #   delete:           - 'yes' - if you want to delete the user, needs 'create' to be no to work | default 'no'
+        #   keyname:          - Public key of the user
+        
+        # Set the custom ssh port here - carefull, this needs to be changed in inventory as well after.
+        ssh_port: 9212
+        #Fail2ban
+
+        fail2ban_safe_ip: 89.136.51.36
+        fail2ban_bantime: "30m"
+        fail2ban_findtime: "2m"
+        fail2ban_maxretry: "3"
+        
+        #firewalld
+        firewalld_settings:
+          - port: "{{ ssh_port }}/tcp"
+            permanent: yes
+            state: enabled
       roles:
       - SecureVPS
       - customizeVPS
