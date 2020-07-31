@@ -33,11 +33,11 @@
 - meta: clear_host_errors  
 
 - name: Set Custom ssh Settings
-  include_tasks: customSshSettings.yml
+  import_tasks: customSshSettings.yml
   tags: 
     - basic
 
 - name: Some Extra Security
-  include_tasks: extraSecurity.yml
+  import_tasks: extraSecurity.yml
   tags: 
     - secured
