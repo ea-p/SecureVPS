@@ -2,10 +2,10 @@
 # tasks file for MediaWiki
 - name: "Install prerequisits"
   include_tasks: prerequisites.yml
-    apply:
-      tags:
-        - secured
-        - mediawiki
+  apply:
+    tags:
+      - secured
+      - mediawiki
   tags: 
     - secured
     - mediawiki
