@@ -28,4 +28,4 @@
   include_role: 
     name: manage-apache-vhost
   vars:
-    - "{{ vhost_vars }}"
+    - vhost_vars: "{{ vhost_vars_play }}"
