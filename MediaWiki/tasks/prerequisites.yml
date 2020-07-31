@@ -1,6 +1,7 @@
 - name: Make sure PHP 7.2* is used
   dnf:
     name: "@php:7.2/"
+  become: yes  
   tags:
     - mediawiki
     
