@@ -11,7 +11,8 @@
     - mediawiki
 
 - name: "Install MariaDB"
-  include_role: ansible-role-mysql
+  include_role: 
+    name: ansible-role-mysql
   apply:
     tags:
       - secured
@@ -21,7 +22,8 @@
     - mediawiki
 
 - name: "Install Apache 2.4.35+"
-  include_role: ansible-role-apache
+  include_role: 
+    name: ansible-role-apache
   apply:
     tags:
         - secured
@@ -39,7 +41,13 @@
     - mediawiki  
 
 - name: "Clean up the wikimedia folder."
-  command: 'mv /var/www/{{ mediawiki_package }} /var/www/mediawiki'
+  command: 'mv /var/www/{{ mediawiki_package }} /var/www/wiki.{{ domain }}'
   tags: 
     - secured
     - mediawiki
+
+- name: "Set vhost for wikimedia"
+  include_role: 
+    name: manage-apache-vhost
+  vars:
+    - "{{ vhost_vars }}"
