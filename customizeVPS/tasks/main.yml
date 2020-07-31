@@ -2,11 +2,10 @@
 # tasks file for customizeVPS
 - name: "Install all tools used"
   dnf:
-    name: "{{ item }}"
+    name: "{{ tools }}"
     state: "present"
   become: yes
   become_user: "root"
-  with_items: "{{ tools }}"
   tags: 
     - secured
 
