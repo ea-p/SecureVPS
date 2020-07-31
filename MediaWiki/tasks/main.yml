@@ -18,6 +18,7 @@
   unarchive:
     src: '{{ wikimedia_download_url }}'
     dest: '/var/www/'
+    remote_src: yes
   tags: [secured, mediawiki] 
 
 - name: "Clean up the wikimedia folder."
