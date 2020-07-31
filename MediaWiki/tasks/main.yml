@@ -2,8 +2,8 @@
 # tasks file for MediaWiki
 - name: "Install prerequisits"
   include_tasks: prerequisites.yml
-  apply:
-    tags:
+    apply:
+      tags:
         - secured
         - mediawiki
   tags: 
@@ -13,10 +13,10 @@
 - name: "Install MariaDB"
   include_role: 
     name: ansible-role-mysql
-  apply:
-    tags:
-      - secured
-      - mediawiki
+    apply:
+      tags:
+        - secured
+        - mediawiki
   tags: 
     - secured
     - mediawiki
@@ -24,8 +24,8 @@
 - name: "Install Apache 2.4.35+"
   include_role: 
     name: ansible-role-apache
-  apply:
-    tags:
+    apply:
+      tags:
         - secured
         - mediawiki
   tags: 
