@@ -1,0 +1,10 @@
+Listen {{ vhost_vars.listened_port }}
+
+<VirtualHost *:{{ vhost_vars.listened_port }}>
+  ServerName www.{{ vhost_vars.website_domain }}
+  ServerAlias {{ vhost_vars.website_domain }}
+  
+  DocumentRoot /var/www/{{ vhost_vars.website_domain }}
+  ErrorLog /var/www/{{ vhost_vars.website_domain }}/logs/error.log
+  CustomLog /var/www/{{ vhost_vars.website_domain }}/logs/requests.log combined
+</VirtualHost> 

@@ -29,4 +29,17 @@
   tags: 
     - secured
     - mediawiki
-  
+
+- name: "Download and unzip the archive."
+  unarchive:
+    src: '{{ wikimedia_download_url }}'
+    dest: '/var/www/'
+  tags: 
+    - secured
+    - mediawiki  
+
+- name: "Clean up the wikimedia folder."
+  command: 'mv /var/www/{{ mediawiki_package }} /var/www/mediawiki'
+  tags: 
+    - secured
+    - mediawiki

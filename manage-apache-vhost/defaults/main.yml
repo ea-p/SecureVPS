@@ -1,0 +1,6 @@
+---
+# defaults file for manage-apache-vhost
+vhost_vars:
+    - website_domain: "example.com"
+      listened_port: "80"
+      

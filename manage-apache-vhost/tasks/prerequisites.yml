@@ -1,0 +1,28 @@
+- name: "Gather data."
+  stat: 
+    path: /etc/httpd
+  register: p
+
+- name: "Ensure directory structure is present"
+  file: 
+    path: '/etc/httpd/{{ item }}'
+    state: directory
+    mode: "{{ p.mode }}"
+    owner: "{{ p.pw_name }}"
+    group: "{{ p.gr_name }}"
+  with_items:
+    - "sites-available"
+    - "sites-enabled"
+
+- name: "Ensure the custom a2ensite scripts are present."
+  template:
+    src: a2ensite.j2
+    dest: /usr/local/bin/a2ensite
+    mode: '0555'
+
+- name: "Ensure the custom a2dissite scripts are present."
+  template:
+    src: a2dissite.j2
+    dest: /usr/local/bin/a2dissite
+    mode: '0555'
+  
