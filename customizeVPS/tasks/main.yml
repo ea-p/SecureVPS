@@ -12,6 +12,9 @@
 
 - name: "Set the custom aliases and functions"
   include_tasks: customAliasAndFunctions.yml
+  apply:
+    tags:
+      - secured
   tags: 
     - secured
 
