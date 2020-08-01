@@ -35,9 +35,13 @@
     state: directory
   tags: mediawiki
 
-- name: "Clean up the wikimedia folder."
-  command: 'mv /var/www/{{ mediawiki_package }}/* /var/www/wiki.{{ domain }}'
+- name: "Copy content of wikimedia archive to content folder."
+  command: 'cp -r /var/www/{{ mediawiki_package }}/* /var/www/wiki.{{ domain }}'
   tags: [secured, mediawiki]
+
+- name: "Remove old folder."
+  command: 'rm -r /var/www/{{ mediawiki_package }}'
+  tags: mediawiki
 
 - name: "Set vhost for wikimedia"
   include_role: 
