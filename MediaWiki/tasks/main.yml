@@ -29,8 +29,14 @@
     remote_src: yes
   tags: [secured, mediawiki] 
 
+- name: "Ensure wikimedia content folder exists."
+  file:
+    path: '/var/www/wiki.{{ domain }}'
+    state: directory
+  tags: mediawiki
+
 - name: "Clean up the wikimedia folder."
-  command: 'mv /var/www/{{ mediawiki_package }} /var/www/wiki.{{ domain }}'
+  command: 'mv /var/www/{{ mediawiki_package }}/* /var/www/wiki.{{ domain }}'
   tags: [secured, mediawiki]
 
 - name: "Set vhost for wikimedia"
