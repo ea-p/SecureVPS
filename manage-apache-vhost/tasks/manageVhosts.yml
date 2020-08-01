@@ -3,6 +3,8 @@
     src: vhosts.js
     dest: '/etc/httpd/sites-available/{{ vhost_vars.website_domain }}.conf'
     mode: '0555'
+  notify:
+    - "Restart apache"
 
 - name: "Create website folder."
   file:
