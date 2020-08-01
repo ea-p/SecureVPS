@@ -4,5 +4,5 @@
   include_tasks: prerequisites.yml
 
 - name: "Manage vhosts."
-    include_tasks: manageVhosts.yml
-    loop: "{{ vhost_vars }}"
+  include_tasks: manageVhosts.yml
+  loop: "{{ vhost_vars }}"
