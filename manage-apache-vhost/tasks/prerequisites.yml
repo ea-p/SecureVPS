@@ -7,9 +7,9 @@
   file: 
     path: '/etc/httpd/{{ item }}'
     state: directory
-    mode: "{{ p.mode }}"
-    owner: "{{ p.pw_name }}"
-    group: "{{ p.gr_name }}"
+    mode: "{{ p.stat.mode }}"
+    owner: "{{ p.stat.pw_name }}"
+    group: "{{ p.stat.gr_name }}"
   with_items:
     - "sites-available"
     - "sites-enabled"
