@@ -47,7 +47,8 @@
   include_role: 
     name: manage-apache-vhost
     apply:
-      tags: mediawiki
+      tags: 
+        mediawiki
   vars:
     - vhost_vars: "{{ vhost_vars_play }}"
   tags: mediawiki
