@@ -2,32 +2,32 @@
 # tasks file for MediaWiki
 - name: "Install prerequisits"
   import_tasks: prerequisites.yml
-  tags: [secured, mediawiki]
+  tags: mediawiki
 
 - name: "Install MariaDB"
   include_role: 
     name: ansible-role-mysql
     apply:
       tags:
-        [secured, mediawiki]
-  tags: [secured, mediawiki]
+        mediawiki
+  tags: mediawiki
 
-  tags: [secured, mediawiki]
+  tags: mediawiki
 
 - name: "Install Apache 2.4.35+"
   include_role: 
     name: ansible-role-apache
     apply:
       tags:
-        [secured, mediawiki]
-  tags: [secured, mediawiki]
+        mediawiki
+  tags: mediawiki
 
 - name: "Download and unzip the archive."
   unarchive:
     src: '{{ wikimedia_download_url }}'
     dest: '/var/www/'
     remote_src: yes
-  tags: [secured, mediawiki] 
+  tags: mediawiki
 
 - name: "Ensure wikimedia content folder exists."
   file:
@@ -37,7 +37,7 @@
 
 - name: "Copy content of wikimedia archive to content folder."
   command: 'cp -r /var/www/{{ mediawiki_package }} /var/www/wiki.{{ domain }}'
-  tags: [secured, mediawiki]
+  tags: mediawiki
 
 - name: "Remove old folder."
   command: 'rm -r /var/www/{{ mediawiki_package }}'
@@ -46,6 +46,8 @@
 - name: "Set vhost for wikimedia"
   include_role: 
     name: manage-apache-vhost
+    apply:
+      tags: mediawiki
   vars:
     - vhost_vars: "{{ vhost_vars_play }}"
-  tags: [secured, mediawiki]  
+  tags: mediawiki
