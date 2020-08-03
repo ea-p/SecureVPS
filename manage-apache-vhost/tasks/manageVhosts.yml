@@ -27,4 +27,3 @@
   when: not item.enable
   notify:
     - "Restart apache"
-  

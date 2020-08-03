@@ -25,4 +25,9 @@
     src: a2dissite.j2
     dest: /usr/local/bin/a2dissite
     mode: '0555'
+
+- name: "Ensure the sites-enabled is read into main config."
+  lineinfile:
+    path: /etc/httpd/conf/httpd.conf
+    line: IncludeOptional sites-enabled/*.conf
   
