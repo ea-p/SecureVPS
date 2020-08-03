@@ -4,4 +4,19 @@
   become: yes  
   tags:
     - mediawiki
-    
+
+- name: Install GraphicsMagick, php requirements and
+  dnf:
+    name: 
+      - GraphicsMagick 
+      - GraphicsMagick-devel 
+      - GraphicsMagick-perl
+      - php-mysqlnd 
+      - php-pdo 
+      - php-gd 
+      - php-mbstring
+      - php-intl
+      - php-pecl-apcu
+  become: yes  
+  tags:
+        - mediawiki
