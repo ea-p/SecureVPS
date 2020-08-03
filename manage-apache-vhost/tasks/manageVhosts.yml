@@ -17,13 +17,13 @@
     state: directory
 
 - name: "Enable website."
-  command: "a2ensite {{ item.website_domain }}"
+  shell: "a2ensite {{ item.website_domain }}"
   when: item.enable
   notify:
     - "Restart apache"
 
 - name: "Disable website."
-  command: "a2dissite {{ item.website_domain }}"
+  shell: "a2dissite {{ item.website_domain }}"
   when: not item.enable
   notify:
     - "Restart apache"
