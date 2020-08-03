@@ -3,4 +3,5 @@
 vhost_vars:
     - website_domain: "example.com"
       listened_port: "80"
+      enable: yes
       

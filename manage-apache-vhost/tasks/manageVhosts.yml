@@ -3,8 +3,6 @@
     src: vhosts.j2
     dest: '/etc/httpd/sites-available/{{ item.website_domain }}.conf'
     mode: '0555'
-  notify:
-    - "Restart apache"
 
 - name: "Create website folder."
   file:
@@ -17,4 +15,16 @@
     path: '/var/www/{{ item.website_domain }}/logs'
     mode: '0555'
     state: directory
+
+- nane: "Enable website."
+  command: "a2ensite {{ item.website_domain }}"
+  when: item.enable
+  notify:
+    - "Restart apache"
+
+- nane: "Disable website."
+  command: "a2dissite {{ item.website_domain }}"
+  when: not item.enable
+  notify:
+    - "Restart apache"
   
