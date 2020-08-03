@@ -18,12 +18,16 @@
 
 - name: "Enable website."
   shell: "a2ensite {{ item.website_domain }}"
+  args:
+    executable: /usr/local/bin/a2ensite
   when: item.enable
   notify:
     - "Restart apache"
 
 - name: "Disable website."
   shell: "a2dissite {{ item.website_domain }}"
+  args:
+    executable: /usr/local/bin/a2dissite
   when: not item.enable
   notify:
     - "Restart apache"
