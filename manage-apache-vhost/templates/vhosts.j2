@@ -1,10 +1,10 @@
-Listen {{ vhost_vars.listened_port }}
+Listen {{ item.listened_port }}
 
-<VirtualHost *:{{ vhost_vars.listened_port }}>
-  ServerName www.{{ vhost_vars.website_domain }}
-  ServerAlias {{ vhost_vars.website_domain }}
+<VirtualHost *:{{ item.listened_port }}>
+  ServerName www.{{ item.website_domain }}
+  ServerAlias {{ item.website_domain }}
   
-  DocumentRoot /var/www/{{ vhost_vars.website_domain }}
-  ErrorLog /var/www/{{ vhost_vars.website_domain }}/logs/error.log
-  CustomLog /var/www/{{ vhost_vars.website_domain }}/logs/requests.log combined
+  DocumentRoot /var/www/{{ item.website_domain }}
+  ErrorLog /var/www/{{ item.website_domain }}/logs/error.log
+  CustomLog /var/www/{{ item.website_domain }}/logs/requests.log combined
 </VirtualHost> 
