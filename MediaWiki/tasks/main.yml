@@ -49,6 +49,6 @@
     apply:
       tags: 
         mediawiki
-  vars:
-    - vhost_vars: "{{ vhost_vars_play }}"
+#  vars:
+#    - vhost_vars: "{{ vhost_vars_play }}"
   tags: mediawiki
