@@ -3,6 +3,7 @@
     src: vhosts.j2
     dest: '/etc/httpd/sites-available/{{ item.website_domain }}.conf'
     mode: '0555'
+    force: yes
 
 - name: "Create website folder."
   file:
