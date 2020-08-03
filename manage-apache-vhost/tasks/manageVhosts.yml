@@ -16,13 +16,13 @@
     mode: '0555'
     state: directory
 
-- nane: "Enable website."
+- name: "Enable website."
   command: "a2ensite {{ item.website_domain }}"
   when: item.enable
   notify:
     - "Restart apache"
 
-- nane: "Disable website."
+- name: "Disable website."
   command: "a2dissite {{ item.website_domain }}"
   when: not item.enable
   notify:
