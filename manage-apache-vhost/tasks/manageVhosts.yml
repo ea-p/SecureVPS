@@ -1,20 +1,20 @@
 - name: "Create/Update the vhost."
   template:
     src: vhosts.js
-    dest: '/etc/httpd/sites-available/{{ website_domain }}.conf'
+    dest: '/etc/httpd/sites-available/{{ item.website_domain }}.conf'
     mode: '0555'
   notify:
     - "Restart apache"
 
 - name: "Create website folder."
   file:
-    path: '/var/www/{{ website_domain }}'
+    path: '/var/www/{{ item.website_domain }}'
     mode: '0555'
     state: directory
 
 - name: "Create website log folder."
   file:
-    path: '/var/www/{{ website_domain }}/logs'
+    path: '/var/www/{{ item.website_domain }}/logs'
     mode: '0555'
     state: directory
   
