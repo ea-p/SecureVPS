@@ -44,5 +44,6 @@
         tags: wordpress
   vars:
     - '{{ wordpress_vhost }}'
+  tags: wordpress
 
   
