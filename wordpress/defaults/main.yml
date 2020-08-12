@@ -1,0 +1,49 @@
+---
+# defaults file for wordpress\
+
+## WP role variables
+# Path to wordpress installation.
+wordpress_data_path: ''
+# Variables for the vhost
+wordpress_vhost:
+    - website_domain:
+      listened_port: '80'
+      enable: yes    
+
+## wp-config/php
+# Define the DB name
+wordpress_db_name: ''
+# Define the DB user
+wordpress_db_user: ''
+# Define the DB user password
+wordpress_db_password: ''
+# Define the DB host, 'localhost' if installed on same machine
+wordpress_db_host: 'localhost'
+# Define the DB charset. Default is 'utf8mb4'. Only needs to change if you use a different character set ex. arabic, chinese
+wordpress_db_charset: 'utf8mb4'
+# Define DB collate. Do not define to let the DB handle it according to it's own charset.
+wordpress_db_collate: ''    
+# Define the security keys and salts. Use generator to fill these in
+wordpress_auth_key: ''
+wordpress_secure_auth_key: ''
+wordpress_logged_in_key: ''
+wordpress_nonce_key: ''
+wordpress_auth_salt: ''
+wordpress_secure_auth_salt: ''
+wordpress_logged_in_salt: ''
+wordpress_nonce_salt: ''
+
+# Define the DB table prefix. Default is 'wp_'. Only needs to be changed if you install multiple WPs with same DB
+wordpress_table_prefix: 'wp_'
+# Define error showing, reporting and logging
+wordpress_debug: true
+wordpress_debug_display: true
+wordpress_debug_log: true
+# Define the number of revisions (drafts) saved per blog entry. Default is 3. Set to false to not save revisions.
+wordpress_post_revisions: '3'
+# Define if this will be a multisite installation. Default is No.
+wordpress_multisite: false
+# Define site not found redirect url. Instead of getting a 404, visitors will be redirected to this site. Default is the web
+wordpress_url: '{{ wordpress_vhost.website_domain }}'
+# Forces WP to use the dev version of stylesheets and javascript files instead of the min.css min.js. Default is false.
+wordpress_script_debug: false

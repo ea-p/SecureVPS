@@ -1,0 +1,48 @@
+---
+# tasks file for wordpress
+- name: Delete /tmp/wordpress if it exists
+  file:
+    path: /tmp/wordpress
+    state: absent
+  ignore_errors: true
+  tags: wordpress
+
+- name: Download the wp archive to tmp and unzip
+  unarchive:
+    src: https://wordpress.org/latest.tar.gz
+    dest: /tmp
+    remote_src: yes
+    force: yes
+  tags: wordpress
+
+- name: Create wordpress data folder
+  file:
+    path: '{{ wordpress_data_path }}'
+    state: directory
+    mode: '0777'
+  become: yes
+  tags: wordpress
+
+- name: Copy wordpress files to data folder
+  copy:
+    src: /tmp/wordpress/
+    dest: '{{ wordpress_data_path }}'
+    remote_src: yes
+  tags: wordpress
+
+- name: Create wp-config.php
+  template:
+    src: wp-config.php.j2
+    dest: '{{ wordpress_data_path }}'
+  tags: wordpress
+  become: yes
+
+- name: Create vhost for wp
+  include_role: 
+    name: manage-apache-vhost
+    apply:
+        tags: wordpress
+  vars:
+    - '{{ wordpress_vhost }}'
+
+  
