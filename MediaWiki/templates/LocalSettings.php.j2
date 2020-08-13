@@ -59,7 +59,7 @@ $wgDBuser = "wiki";
 $wgDBpassword = "{{ mysql_users[0].password }}";
 
 # MySQL specific settings
-$wgDBprefix = "";
+$wgDBprefix = "{{ wordpress_table_prefix }}";
 
 # MySQL table options to use during installation or update
 $wgDBTableOptions = "ENGINE=InnoDB, DEFAULT CHARSET=binary";
