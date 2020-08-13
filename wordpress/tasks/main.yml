@@ -37,6 +37,22 @@
   tags: wordpress
   become: yes
 
+- name: Create DB
+  mysql_db:
+    name: "{{ wordpress_db_name }}"
+    collation: "{{ vars[wordpress_db_charset + '_general_ci'] | default('utf8_general_ci') }}"
+    encoding: "{{ wordpress_db_charset | default('utf8') }}"
+
+- name: Create DB User
+  mysql_user:
+    name: "{{ wordpress_db_user }}"
+    host: "{{ wordpress_db_host | default('localhost') }}"
+    password: "{{ wordpress_db_password }}"
+    priv: "{{ wordpress_db_priv | default('*.*:USAGE') }}"
+    append_privs: "{{ append_privs | default('no') }}"
+    encrypted: "{{ item.encrypted | default('no') }}"
+  no_log: true
+
 - name: Create vhost for wp
   include_role: 
     name: manage-apache-vhost

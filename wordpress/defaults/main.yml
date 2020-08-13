@@ -17,6 +17,8 @@ wordpress_db_name: ''
 wordpress_db_user: ''
 # Define the DB user password
 wordpress_db_password: ''
+# Defube the acces rights of the user
+wordpress_db_priv: '*.*:USAGE'
 # Define the DB host, 'localhost' if installed on same machine
 wordpress_db_host: 'localhost'
 # Define the DB charset. Default is 'utf8mb4'. Only needs to change if you use a different character set ex. arabic, chinese
