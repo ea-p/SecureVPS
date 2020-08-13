@@ -80,16 +80,6 @@ $table_prefix = '{{ wordpress_table_prefix|default("wp_") }}';
  
 define( 'WP_DEBUG', '{{ wordpress_debug|default(false) }}');
 
-/* That's all, stop editing! Happy publishing. */
-
-/** Absolute path to the WordPress directory. */
-if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
-}
-
-/** Sets up WordPress vars and included files. */
-require_once ABSPATH . 'wp-settings.php';
-
 
 /** Custom Settings */
 
@@ -110,3 +100,13 @@ define( 'WP_DEBUG_LOG', '{{ wordpress_debug_log|default(true) }}' );
 
 /** Define if WP should use the dev version of css and js*/
 define( 'SCRIPT_DEBUG', '{{ wordpress_script_debug|default(false) }}' );
+
+/* That's all, stop editing! Happy publishing. */
+
+/** Absolute path to the WordPress directory. */
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', __DIR__ . '/' );
+}
+
+/** Sets up WordPress vars and included files. */
+require_once ABSPATH . 'wp-settings.php';
