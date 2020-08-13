@@ -23,9 +23,9 @@
 
   - name: "Install Remi repo"
     include_role: ansible-role-repo-remi
-    apply:
-      tags:
-        - basic
+      apply:
+        tags:
+          - basic
     tags: 
       - basic
     ignore_errors: no
