@@ -13,10 +13,10 @@
       - basic
   
   - name: "Install EPEL repo"
-    include_role: ansible-role-repo-epel
-    apply:
-      tags:
-        - basic
+    import_role: ansible-role-repo-epel
+      apply:
+        tags:
+          - basic
     tags: 
       - basic
     ignore_errors: no
