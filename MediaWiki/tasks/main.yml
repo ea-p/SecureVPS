@@ -55,3 +55,9 @@
   vars:
     - vhost_vars: "{{ vhost_vars_play }}"
   tags: mediawiki
+
+- name: Copy LocalSettings.php
+  template:
+    src: LocalSettings.php.j2
+    dest: '/var/www/wiki.{{ domain }}/LocalSettings.php'
+  tags: mediawiki

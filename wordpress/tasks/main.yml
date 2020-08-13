@@ -40,7 +40,7 @@
 - name: Create DB
   mysql_db:
     name: "{{ wordpress_db_name }}"
-    collation: "{{ vars[wordpress_db_charset + '_general_ci'] | default('utf8_general_ci') }}"
+    collation: "{{ vars[wordpress_db_charset + '_general_ci'] | default('utf8mb4_general_ci') }}"
     encoding: "{{ wordpress_db_charset | default('utf8') }}"
   tags: wordpress
 

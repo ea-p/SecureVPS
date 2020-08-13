@@ -1,2 +1,6 @@
 ---
 # defaults file for MediaWiki
+wordpress_site_name: ''
+wordpress_site_namespace: ''
+wordpress_FQDN: ''
+wordpress_email: ''
