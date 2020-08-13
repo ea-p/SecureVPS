@@ -37,6 +37,7 @@
 
 - name: "Copy content of wikimedia archive to content folder."
   command: 'cp -r /var/www/{{ mediawiki_package }}/ /var/www/wiki.{{ domain }}'
+  remote_src: yes
   tags: mediawiki
 
 - name: "Remove old folder."
