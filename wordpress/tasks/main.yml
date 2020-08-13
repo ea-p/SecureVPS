@@ -33,7 +33,7 @@
 - name: Create wp-config.php
   template:
     src: wp-config.php.j2
-    dest: '{{ wordpress_data_path }}'
+    dest: '{{ wordpress_data_path }}/wp-config.php'
   tags: wordpress
   become: yes
 
