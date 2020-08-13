@@ -36,7 +36,7 @@
   tags: mediawiki
 
 - name: "Copy content of wikimedia archive to content folder."
-  command: 'cp -r /var/www/{{ mediawiki_package }}/* /var/www/wiki.{{ domain }}'
+  command: 'cp -r /var/www/{{ mediawiki_package }}/ /var/www/wiki.{{ domain }}'
   tags: mediawiki
 
 - name: "Remove old folder."
