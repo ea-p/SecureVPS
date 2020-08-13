@@ -11,14 +11,16 @@
     tags: basic
   
   - name: "Install EPEL repo"
-    include_role: ansible-role-repo-epel
+    include_role: 
+      name: ansible-role-repo-epel
       apply:
         tags: basic
     tags: basic
     ignore_errors: no
 
   - name: "Install Remi repo"
-    include_role: ansible-role-repo-remi
+    include_role: 
+      name: ansible-role-repo-remi
       apply:
         tags: basic
     tags: basic
