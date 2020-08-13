@@ -42,16 +42,18 @@
     name: "{{ wordpress_db_name }}"
     collation: "{{ vars[wordpress_db_charset + '_general_ci'] | default('utf8_general_ci') }}"
     encoding: "{{ wordpress_db_charset | default('utf8') }}"
+  tags: wordpress
 
 - name: Create DB User
   mysql_user:
     name: "{{ wordpress_db_user }}"
     host: "{{ wordpress_db_host | default('localhost') }}"
     password: "{{ wordpress_db_password }}"
-    priv: "{{ wordpress_db_priv | default('*.*:USAGE') }}"
+    priv: "{{wordpress_db_name }}.*:ALL,GRANT"
     append_privs: "{{ append_privs | default('no') }}"
     encrypted: "{{ item.encrypted | default('no') }}"
   no_log: true
+  tags: wordpress
 
 - name: Create vhost for wp
   include_role: 
