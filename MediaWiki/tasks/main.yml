@@ -39,7 +39,7 @@
   copy: 
     src: '/var/www/{{ mediawiki_package }}/'
     dest: '/var/www/wiki.{{ domain }}'
-  remote_src: yes
+    remote_src: yes
   tags: mediawiki
 
 - name: "Remove old folder."
