@@ -59,7 +59,7 @@
     apply:
         tags: wordpress
   vars:
-    - '{{ wordpress_vhost }}'
+    - vhost_vars: "{{ wordpress_vhost }}"  
   tags: wordpress
 
   
