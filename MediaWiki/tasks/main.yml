@@ -77,7 +77,7 @@
 
 - name: Clean up dump file
   file:
-    state: absen
+    state: absent
     path: /tmp/wiki_dump.sql
   become: yes
   tags: mediawiki
