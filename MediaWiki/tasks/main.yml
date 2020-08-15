@@ -61,3 +61,23 @@
     src: LocalSettings.php.j2
     dest: '/var/www/wiki.{{ domain }}/LocalSettings.php'
   tags: mediawiki
+
+- name: Copy sql dump file.
+  template:
+    src: wiki_dump.sql.j2
+    dest: /tmp/wiki_dump.sql
+  tags: mediawiki
+
+- name: Import basic DB.
+  mysql_db:
+    name: wikidatabase
+    state: import
+    target: /tmp/wiki_dump.sql
+  tags: mediawiki
+
+- name: CLean up dump file
+  file:
+    state: absen
+    path: /tmp/wiki_dump.sql
+  become: yes
+  tags: mediawiki
