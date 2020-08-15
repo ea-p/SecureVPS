@@ -37,11 +37,26 @@
   tags: wordpress
   become: yes
 
+- name: Copy DB dump.
+  template:
+    path: wordpress_dump.sql.j2
+    dest: /tmp/wordpress_dump.sql
+  tags: wordpress
+
 - name: Create DB
   mysql_db:
     name: "{{ wordpress_db_name }}"
     collation: "{{ vars[wordpress_db_charset + '_general_ci'] | default('utf8mb4_general_ci') }}"
     encoding: "{{ wordpress_db_charset | default('utf8') }}"
+    state: import
+    target: /tmp/wordpress_dump.sql
+  tags: wordpress
+
+- name: Clean up DB dump file
+  file:
+    state: absent
+    path: /tmp/wordpress_dump.sql
+  become: yes
   tags: wordpress
 
 - name: Create DB User
