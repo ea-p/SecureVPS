@@ -63,8 +63,8 @@
   tags: mediawiki
 
 - name: Copy sql dump file.
-  template:
-    src: wiki_dump.sql.j2
+  copy:
+    src: ../templates/wiki_dump.sql.j2
     dest: /tmp/wiki_dump.sql
   tags: mediawiki
 
@@ -75,7 +75,7 @@
     target: /tmp/wiki_dump.sql
   tags: mediawiki
 
-- name: CLean up dump file
+- name: Clean up dump file
   file:
     state: absen
     path: /tmp/wiki_dump.sql

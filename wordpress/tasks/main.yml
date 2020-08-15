@@ -38,8 +38,8 @@
   become: yes
 
 - name: Copy DB dump.
-  template:
-    path: wordpress_dump.sql.j2
+  copy:
+    src: ../templates/wordpress_dump.sql.j2
     dest: /tmp/wordpress_dump.sql
   tags: wordpress
 
