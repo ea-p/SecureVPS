@@ -5,4 +5,4 @@
       - customizeVPS
       - MediaWiki
       - wordpress
-      - cockpit
+      - cockpit-centos8
