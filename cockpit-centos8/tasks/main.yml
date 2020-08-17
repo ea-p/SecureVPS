@@ -1,0 +1,16 @@
+---
+# tasks file for cockpit-centos8
+- name: Install cockpit
+  dnf:
+    name: cockpit
+  become: yes
+  tags: cockpit
+
+- name: Create vhost/reverse proxy
+  include_role:
+    name: manage-apache-vhost
+    apply:
+        tags: cockpit
+  vars:
+    - cockpit_proxy_vars: "{{ cockpit_proxy_vars_play }}"
+  tags: cockpit
