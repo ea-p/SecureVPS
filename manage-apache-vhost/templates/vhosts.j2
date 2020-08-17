@@ -2,14 +2,14 @@
   ServerName www.{{ item.website_domain }}
   ServerAlias {{ item.website_domain }}
 
-  {%if item.proxy %}}
+  {%if item.proxy %}
   ProxyPreserverHost On
 
   ProxyPass / {{ item.proxy_target }} 
   ProxyPassRevers  / {{ item.proxy_target }}
-  {% endif %}}
+  {% endif %}
 
-  {% if not item.proxy %}}
+  {% if not item.proxy %}
   DocumentRoot /var/www/{{ item.website_domain }}
   {% endif %}}
   ErrorLog /var/www/{{ item.website_domain }}/logs/error.log
