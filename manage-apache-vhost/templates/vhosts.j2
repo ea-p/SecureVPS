@@ -11,7 +11,7 @@
 
   {% if not item.proxy %}
   DocumentRoot /var/www/{{ item.website_domain }}
-  {% endif %}}
+  {% endif %}
   ErrorLog /var/www/{{ item.website_domain }}/logs/error.log
   CustomLog /var/www/{{ item.website_domain }}/logs/requests.log combined
 </VirtualHost> 
