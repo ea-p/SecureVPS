@@ -7,6 +7,7 @@
 
   ProxyPass / {{ item.proxy_target }} 
   ProxyPassRevers  / {{ item.proxy_target }}
+  {% endif %}}
   
   {% if not proxy %}}
   DocumentRoot /var/www/{{ item.document_root }}
