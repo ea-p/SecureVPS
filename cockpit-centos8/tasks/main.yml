@@ -12,5 +12,12 @@
     apply:
         tags: cockpit
   vars:
-    - cockpit_proxy_vars: "{{ cockpit_proxy_vars_play }}"
+    - vhost_vars: "{{ cockpit_proxy_vars_play }}"
+  tags: cockpit
+
+- name: Start and enable the cockpit service.
+  service:
+    name: cockpit
+    state: restarted
+    enabled: yes
   tags: cockpit
