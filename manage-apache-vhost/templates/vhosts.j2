@@ -3,7 +3,7 @@
   ServerAlias {{ item.website_domain }}
 
   {%if item.proxy %}
-  ProxyPreserverHost On
+  ProxyPreserveHost On
 
   ProxyPass / {{ item.proxy_target }} 
   ProxyPassRevers  / {{ item.proxy_target }}
