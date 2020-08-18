@@ -6,7 +6,7 @@
   ProxyPreserveHost On
 
   ProxyPass / {{ item.proxy_target }} 
-  ProxyPassRevers  / {{ item.proxy_target }}
+  ProxyPassReverse / {{ item.proxy_target }}
   {% endif %}
 
   {% if not item.proxy %}
