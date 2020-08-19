@@ -1,0 +1,28 @@
+---
+# tasks file for nodejs
+- name: Install prerequisites
+  dnf:
+    name: 
+      - gcc-c++
+      - make
+    state: latest
+  become: yes
+  tags: 
+    - nodejs
+    - webdev
+
+- name: Install the nodejs repo
+  command:
+    cmd: "curl -sL https://rpm.nodesource.com/setup_{{ nodejs_version_number }}.x | sudo -E bash -"
+  tags:
+    - nodejs
+    - webdev  
+
+- name: "Install nodejs v.{{ nodejs_version_number }}"
+  dnf:
+    name: nodejs
+    state: latest
+  become: yes
+  tags:
+    - nodejs
+    - webdev
