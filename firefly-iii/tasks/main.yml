@@ -45,7 +45,7 @@
 - name: Copy .env
   template: 
     src: .env.j2
-    dest: "/var/www/{{ firefly_directory }}/.env"
+    dest: "/var/www/{{ firefly_ROOT }}/.env"
   become: yes
   tags:
     - firefly
