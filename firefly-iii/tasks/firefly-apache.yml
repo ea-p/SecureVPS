@@ -11,6 +11,7 @@
   command: "a2ensite {{ firefly_WEBSITE }}.conf"
   when: firefly_ACTIVATE == "true"
   notify: firefly-apache-restart
+  become: yes
   tags:
     - firefly
     - firefly-apache
@@ -19,6 +20,7 @@
   command: "a2dissite {{ firefly_WEBSITE }}.conf"
   when: firefly_ACTIVATE == "false"
   notify: firefly-apache-restart
+  become: yes
   tags:
       - firefly
       - firefly-apache

@@ -41,14 +41,12 @@
 
 - name: Database tasks
   include_tasks: "firefly_{{ firefly_DB_HOST }}.yml"
-  become: yes
   tags:
     - firefly
     - firefly_DB
 
 - name: Apache tasks
   include_tasks: firelfy_apache.yml
-  become: yes
   tags:
     - firefly
     - firelfy_apache

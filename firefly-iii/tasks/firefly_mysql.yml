@@ -8,3 +8,4 @@
     append_privs: "no"
     encrypted: "no"
   no_log: true
+  become: true
