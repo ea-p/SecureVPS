@@ -9,3 +9,6 @@
     encrypted: "no"
   no_log: true
   become: true
+  tags:
+    - firefly
+    - mysql 
