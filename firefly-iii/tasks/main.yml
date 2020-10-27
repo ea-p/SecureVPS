@@ -3,11 +3,11 @@
 - name: Check and instal prerequired php and php modules
   import_role: 
     name: ansible-role-php
+    apply:
+      tags:
+        - php
+        - firefly
   become: yes
-  apply:
-    tags:
-      - php
-      - firefly
   tags:
     - php
     - firelfy
