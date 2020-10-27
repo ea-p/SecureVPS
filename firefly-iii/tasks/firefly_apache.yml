@@ -1,6 +1,6 @@
 - name: Copy vhost for firefly-iii
   template:
-    src: firefly.domain.com.conf.js
+    src: firefly.domain.com.conf.j2
     dest: "/etc/httpd/sites-available/{{ firefly_WEBSITE }}.conf"
   become: yes
   tags:
