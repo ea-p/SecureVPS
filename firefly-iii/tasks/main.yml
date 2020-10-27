@@ -38,6 +38,8 @@
 
 - name: Download and compose firefly
   command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist firefly-iii {{ firefly_VERSION }}"
+  args:
+    chdir: "/var/www/{{ firefly_ROOT }}/"
   become: yes
   tags:
     - firefly  
