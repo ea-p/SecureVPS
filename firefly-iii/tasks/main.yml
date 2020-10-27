@@ -28,7 +28,7 @@
 
 - name: Make directory for firefly
   file:
-    path: "/var/www/{{ firefly_directory }}"
+    path: "/var/www/{{ firefly_ROOT }}"
     state: directory
     mode: '0755'
     recurse: yes
