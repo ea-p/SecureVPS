@@ -60,7 +60,7 @@
     - firefly_DB
 
 - name: Apache tasks
-  include_tasks: firelfy_apache.yml
+  include_tasks: firefly_apache.yml
   tags:
     - firefly
     - firelfy_apache
