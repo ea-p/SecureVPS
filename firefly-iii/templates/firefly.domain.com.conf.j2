@@ -3,6 +3,13 @@
 #  ServerAlias {{ firefly_WEBSITE }}
 
 
+  <Directory /var/www/firefly.theblacknest.tk/>
+    AllowOverride All
+    Require all granted
+  </Directory>
+
+
+
     DocumentRoot /var/www/{{ firefly_WEBSITE }}/public
     ErrorLog /var/www/{{ firefly_WEBSITE }}/logs/error.log
     CustomLog /var/www/{{ firefly_WEBSITE }}/logs/requests.log combined
