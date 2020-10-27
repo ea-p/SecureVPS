@@ -37,7 +37,7 @@
     - firefly
 
 - name: Download and compose firefly
-  command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist firefly-iii {{ composer_version }}"
+  command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist firefly-iii {{ firefly_VERSION }}"
   become: yes
   tags:
     - firefly  
