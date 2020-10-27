@@ -13,7 +13,7 @@
     name: "{{ firefly_DB_USERNAME }}"
     host: "{{ firefly_DB_HOST | default('localhost') }}"
     password: "{{ firefly_DB_PASSWORD }}"
-    priv: "firefly_DB_DATABASE.*:ALL,GRANT"
+    priv: "{{ firefly_DB_DATABASE }}.*:ALL,GRANT"
     state: "present"
     append_privs: "no"
     encrypted: "no"
@@ -22,3 +22,4 @@
   tags:
     - firefly
     - mysql 
+    - mysql-user
