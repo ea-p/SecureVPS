@@ -26,9 +26,17 @@
     - php
     - firefly
 
+- name: Download and compose firefly
+  command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist {{ firefly_WEBSITE }}.theblacknest.tk {{ firefly_VERSION }}"
+  args:
+    chdir: "/var/www/"
+  become: yes
+  tags:
+    - firefly  
+
 - name: Make directory for firefly
   file:
-    path: "/var/www/{{ firefly_ROOT }}"
+    path: "/var/www/{{ firefly_WEBSITE }}/logs"
     state: directory
     mode: '0755'
     recurse: yes
@@ -36,18 +44,10 @@
   tags:
     - firefly
 
-- name: Download and compose firefly
-  command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist firefly-iii {{ firefly_VERSION }}"
-  args:
-    chdir: "/var/www/{{ firefly_ROOT }}/"
-  become: yes
-  tags:
-    - firefly  
-
 - name: Copy .env
   template: 
     src: .env.j2
-    dest: "/var/www/{{ firefly_ROOT }}/.env"
+    dest: "/var/www/{{ firefly_WEBSITE }}/.env"
   become: yes
   tags:
     - firefly
