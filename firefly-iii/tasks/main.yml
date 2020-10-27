@@ -3,7 +3,6 @@
 - name: Check and instal prerequired php and php modules
   import_role: 
     name: ansible-role-php
-  become: yes
   tags:
     - php
     - firelfy
