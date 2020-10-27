@@ -2,8 +2,8 @@
 # tasks file for firefly-iii
 - name: Check and instal prerequired php and php modules
   import_role: ansible-role-php
-    vars_files: 
-      files: php-req.yml
+  include_vars: 
+    files: php-req.yml
   become: yes
   apply:
     tags:
