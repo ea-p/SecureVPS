@@ -17,7 +17,7 @@
     - firefly-apache
 
 - name: Create symlink to new apache vhost config
-  command: "a2dissite {{ firefly_WEBSITE }}.conf"
+  command: "a2dissite {{ firefly_WEBSITE }}"
   when: firefly_ACTIVATE == "false"
   notify: firefly-apache-restart
   become: yes
