@@ -5,6 +5,7 @@
     name: ansible-role-php
   tags:
     - php
+    - php-req
     - firelfy
 
 - name: Download composer installer
