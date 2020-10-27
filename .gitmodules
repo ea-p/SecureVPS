@@ -10,3 +10,6 @@
 [submodule "ansible-role-apache"]
 	path = ansible-role-apache
 	url = https://github.com/ea-p/ansible-role-apache.git
+[submodule "ansible-role-php"]
+	path = ansible-role-php
+	url = https://github.com/geerlingguy/ansible-role-php.git

@@ -1,0 +1,10 @@
+- name: Ensure MySQL users are present.
+  mysql_user:
+    name: "{{ firefly_DB_USERNAME }}"
+    host: "{{ firefly_DB_DATABASE | default('localhost') }}"
+    password: "{{ firefly_DB_PASSWORD }}"
+    priv: "*.*:USAGE"
+    state: "present"
+    append_privs: "no"
+    encrypted: "no"
+  no_log: true

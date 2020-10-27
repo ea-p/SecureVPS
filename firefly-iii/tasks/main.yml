@@ -1,0 +1,57 @@
+---
+# tasks file for firefly-iii
+- name: Check and instal prerequired php and php modules
+  import_role: ansible-role-php
+  vars_files: 
+    - ./vars/php-req.yml
+  become: yes
+  tags:
+    - php
+    - firelfy
+
+- name: Install composer
+  command: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+  become: yes
+  tags:
+    - php
+    - firefly
+
+- name: Make directory for firefly
+  file:
+    path: "/var/www/{{ firefly_directory }}"
+    state: directory
+    mode: '0755'
+    recurse: yes
+  become: yes
+  tags:
+    - firefly
+
+- name: Download and compose firefly
+  command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist firefly-iii {{ composer_version }}"
+  become: yes
+  tags:
+    - firefly  
+
+- name: Copy .env
+  template: 
+    src: .env.j2
+    dest: "/var/www/{{ firefly_directory }}/.env"
+  become: yes
+  tags:
+    - firefly
+    - firefly_config
+
+- name: Database tasks
+  include_tasks: "firefly_{{ firefly_DB_HOST }}.yml"
+  become: yes
+  tags:
+    - firefly
+    - firefly_DB
+
+- name: Apache tasks
+  include_tasks: firelfy_apache.yml
+  become: yes
+  tags:
+    - firefly
+    - firelfy_apache
+

@@ -1,0 +1,9 @@
+<VirtualHost *:80>
+  ServerName "firefly.{{ firefly_WEBSITE }}"
+#  ServerAlias "firefly.{{ firefly_WEBSITE }}"
+
+
+    DocumentRoot "/var/www/{{ firefly_ROOT }}/public"
+    ErrorLog /var/www/wordpress.theblacknest.tk/logs/error.log
+    CustomLog /var/www/wordpress.theblacknest.tk/logs/requests.log combined
+</VirtualHost>

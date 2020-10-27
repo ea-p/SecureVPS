@@ -1,0 +1,10 @@
+---
+# handlers file for firefly-iii
+- name: firefly-apache-restart
+  service:
+    name: httpd
+    state: restarted
+  become: yes
+  tags:
+    - firefly
+    - firefly-apache

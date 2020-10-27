@@ -1,0 +1,25 @@
+- name: Copy vhost for firefly-iii
+  template:
+    src: firefly.domain.com.conf.js
+    dest: "/etc/httpd/sites-available/{{ firefly_WEBSITE }}.conf"
+  become: yes
+  tags:
+    - firefly
+    - firefly-apache
+  
+- name: Create symlink to new apache vhost config
+  command: "a2ensite {{ firefly_WEBSITE }}.conf"
+  when: firefly_ACTIVATE == "true"
+  notify: firefly-apache-restart
+  tags:
+    - firefly
+    - firefly-apache
+
+- name: Create symlink to new apache vhost config
+  command: "a2dissite {{ firefly_WEBSITE }}.conf"
+  when: firefly_ACTIVATE == "false"
+  notify: firefly-apache-restart
+  tags:
+      - firefly
+      - firefly-apache
+  
