@@ -8,7 +8,7 @@
     - firelfy
 
 - name: Install composer
-  command: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+  command: "curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer"
   become: yes
   tags:
     - php
