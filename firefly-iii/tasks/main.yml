@@ -54,7 +54,7 @@
     - firefly_config
 
 - name: Database tasks
-  include_tasks: "firefly_{{ firefly_DB_HOST }}.yml"
+  include_tasks: "firefly_{{ firefly_DB_CONNECTION }}.yml"
   tags:
     - firefly
     - firefly_DB
