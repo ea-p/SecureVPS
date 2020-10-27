@@ -27,7 +27,7 @@
     - firefly
 
 - name: Download and compose firefly
-  command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist {{ firefly_WEBSITE }}.theblacknest.tk {{ firefly_VERSION }}"
+  command: "/usr/local/bin/composer create-project grumpydictator/firefly-iii --no-dev --prefer-dist {{ firefly_WEBSITE }} {{ firefly_VERSION }}"
   args:
     chdir: "/var/www/"
   become: yes
