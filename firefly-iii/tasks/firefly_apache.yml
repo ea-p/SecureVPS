@@ -8,7 +8,7 @@
     - firefly-apache
   
 - name: Create symlink to new apache vhost config
-  command: "a2ensite {{ firefly_WEBSITE }}.conf"
+  command: "a2ensite {{ firefly_WEBSITE }}"
   when: firefly_ACTIVATE == "true"
   notify: firefly-apache-restart
   become: yes
