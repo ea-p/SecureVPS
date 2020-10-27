@@ -1,6 +1,6 @@
 - name: Crete database
   mysql_db:
-    name: "{{ firefly_DB_USERNAME }}"
+    name: "{{ firefly_DB_DATABASE }}"
     state: present
   become: yes
   tags:
