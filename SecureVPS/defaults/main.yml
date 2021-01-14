@@ -19,7 +19,7 @@ user_vars:
 #   keyname:          - Public key of the user
 
 # Set the custom ssh port here - carefull, this needs to be changed in inventory as well after.
-ssh_port: 9212
+ssh_port: 22
 
 fail2ban_safe_ip: 127.0.0.1
 fail2ban_bantime: ""
