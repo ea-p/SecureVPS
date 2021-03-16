@@ -1,5 +1,5 @@
 ---
-    - hosts: basic
+    - hosts: theblackhost_unsecured
  #     remote_user: root
       roles:
         - SecureVPS

@@ -1,0 +1,7 @@
+---
+# tasks file for docker
+- name: Prerequisites
+  dnf:
+    name: docker-ce
+    state: latest
+    enablerepo: https://download.docker.com/linux/centos/docker-ce.repo
