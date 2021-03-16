@@ -18,13 +18,13 @@
     tags: basic
     ignore_errors: no
 
-  - name: "Install Remi repo"
-    include_role: 
-      name: ansible-role-repo-remi
-      apply:
-        tags: basic
-    tags: basic
-    ignore_errors: no
+#  - name: "Install Remi repo"
+#    include_role: 
+#      name: ansible-role-repo-remi
+#      apply:
+#        tags: basic
+#    tags: basic
+#    ignore_errors: no
 
 # only needed for EPEL v8
   - name: "Activate PowerTools repo"  
