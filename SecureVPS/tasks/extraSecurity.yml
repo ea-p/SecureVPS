@@ -9,6 +9,11 @@
     - basic
     - secured
 
+- name: Enable fail2ban
+  service:
+    name: fail2ban
+    enabled: yes
+
 - name: "Configure fail2ban"
   template:
     src: jail.local.j2
