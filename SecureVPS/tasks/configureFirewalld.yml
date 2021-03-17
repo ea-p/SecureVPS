@@ -6,4 +6,5 @@
   become_user: "root"
   notify: "Restart firewalld"
   tags: 
+    - basic
     - secured

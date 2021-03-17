@@ -40,4 +40,4 @@
 - name: Some Extra Security
   import_tasks: extraSecurity.yml
   tags: 
-    - secured
+    - basic

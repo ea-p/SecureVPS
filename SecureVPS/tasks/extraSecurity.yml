@@ -6,6 +6,7 @@
   become: yes
   become_user: "root"
   tags: 
+    - basic
     - secured
 
 - name: "Configure fail2ban"
@@ -15,6 +16,7 @@
   become: yes
   become_user: "root"
   tags: 
+    - basic 
     - secured
   notify: "Restart fail2ban"
 
@@ -25,6 +27,7 @@
   become: yes
   become_user: "root"
   tags: 
+    - basic 
     - secured
 
 - name: "Configure firewalld"
@@ -34,4 +37,5 @@
       tags: secured
   with_items: ' {{ firewalld_settings }}'
   tags: 
+    - basic 
     - secured
