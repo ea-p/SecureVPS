@@ -12,7 +12,7 @@
   
   - name: "Install EPEL repo"
     include_role: 
-      name: ansible-role-repo-epel
+      name: ansible-role-epel
       apply:
         tags: basic
     tags: basic
