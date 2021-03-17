@@ -40,7 +40,7 @@
     file: configureFirewalld.yml
     apply:
       tags: secured
-  with_items: ' {{ firewalld_settings }}'
+  loop: ' {{ firewalld_settings }}'
   tags: 
     - basic 
     - secured

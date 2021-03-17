@@ -3,7 +3,7 @@
 #  ServerAlias {{ firefly_WEBSITE }}
 
 
-  <Directory /var/www/firefly.theblacknest.tk/>
+  <Directory /var/www/{{ firefly_WEBSITE }}/>
     AllowOverride All
     Require all granted
   </Directory>
