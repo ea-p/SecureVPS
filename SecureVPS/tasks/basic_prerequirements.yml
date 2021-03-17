@@ -28,6 +28,6 @@
 
 # only needed for EPEL v8
   - name: "Activate PowerTools repo"  
-    command: "dnf config-manager --set-enabled PowerTools"
+    command: "dnf config-manager --set-enabled powertools"
     ignore_errors: no
     tags: basic
