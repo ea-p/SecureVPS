@@ -1,8 +1,9 @@
 
-    - hosts: secured
+    - hosts: theblackhost_secured
       roles:
       - SecureVPS
       - customizeVPS
       - MediaWiki
       - wordpress
       - cockpit-centos8
+      - firefly-iii
