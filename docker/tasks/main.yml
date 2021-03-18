@@ -5,6 +5,10 @@
   become: yes
   become_user: root
 
+- name: Uninstall any podman-docker
+  dnf:
+    name: docker
+    state: absent
 
 - name: Install docker
   dnf:
