@@ -1,0 +1,30 @@
+- name: "Create/Update the vhost."
+  template:
+    src: vhosts.j2
+    dest: '/etc/apache2/sites-available/{{ item.website_domain }}.conf'
+    mode: '0555'
+    force: yes
+
+- name: "Create website folder."
+  file:
+    path: '/var/www/{{ item.website_domain }}'
+    mode: '0555'
+    state: directory
+
+- name: "Create website log folder."
+  file:
+    path: '/var/www/{{ item.website_domain }}/logs'
+    mode: '0555'
+    state: directory
+
+- name: "Enable website."
+  raw: "/usr/local/bin/a2ensite {{ item.website_domain }}"
+  when: item.enable
+  notify:
+    - "Restart apache"
+
+- name: "Disable website."
+  raw: "/usr/local/bin/a2dissite {{ item.website_domain }}"
+  when: not item.enable
+  notify:
+    - "Restart apache"

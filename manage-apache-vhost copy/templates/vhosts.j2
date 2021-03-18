@@ -1,0 +1,17 @@
+<VirtualHost *:{{ item.listened_port }}>
+  ServerName www.{{ item.website_domain }}
+  ServerAlias {{ item.website_domain }}
+
+  {%if item.proxy %}
+  ProxyPreserveHost On
+
+  ProxyPass / {{ item.proxy_target }} 
+  ProxyPassReverse / {{ item.proxy_target }}
+  {% endif %}
+
+  {% if not item.proxy %}
+  DocumentRoot /var/www/{{ item.website_domain }}
+  {% endif %}
+  ErrorLog /var/www/{{ item.website_domain }}/logs/error.log
+  CustomLog /var/www/{{ item.website_domain }}/logs/requests.log combined
+</VirtualHost> 

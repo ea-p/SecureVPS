@@ -14,5 +14,9 @@
   tags: 
     - secured
 
-
-     
+- name: "Install nodejs"
+  include_role: 
+    name: ansible-role-nodejs
+    apply:
+      tags: 
+        secured

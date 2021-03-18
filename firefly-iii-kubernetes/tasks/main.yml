@@ -1,0 +1,38 @@
+---
+# tasks file for firefly-iii-kubernetes
+- name: Download the kubernetes installation files
+  git:
+    repo: https://github.com/firefly-iii/kubernetes
+    dest: /root/firefly-iii-k8s
+    depth: '1'
+  tags:
+    - secured
+
+- name: Modify db_password
+  replace:
+    path: /root/firefly-iii-k8s/kustomization.yaml
+    regexp: '^(\s\s-\sdb_password=)'
+    replace: "  - db_password={{ firefly_k8s_DB_PASS | default('CHANGEMECHANGEMECHANGEME') }}"
+  tags:
+    - secured
+
+- name: Modify app_key
+  replace:
+    path: /root/firefly-iii-k8s/kustomization.yaml
+    regexp: '^(\s\s-\sapp_key=)'
+    replace: "  - app_key={{ firefly_k8s_APP_KEY | default('fxNwH5fMRzvDc8VGpt8SbpB6hukCFaFC') }}""
+  tags:
+    - secured
+
+- name: Create and launch
+  shell: kubectl apply -k /root/firefly-iii-k8s/
+  tags:
+    - secured
+
+- name: Create vhost with reverse proxy
+  include_role:
+    name: manage-apache-vhost
+  tags:
+    - secured
+
+

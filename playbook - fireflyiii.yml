@@ -1,3 +1,4 @@
 - hosts: secured
   roles:
-    - firefly-iii
+    - ansible-role-kubernetes
+    - firefly-iii-kubernetes
