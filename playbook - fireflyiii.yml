@@ -1,4 +1,5 @@
 - hosts: theblackhost_secured
   roles:
+    - docker
     - ansible-role-kubernetes
     - firefly-iii-kubernetes
