@@ -1,7 +1,11 @@
 ---
 # tasks file for docker
-- name: Prerequisites
+- name: Install docker
   dnf:
-    name: docker
+    name: "{{ item }}"
     state: latest
     enablerepo: https://download.docker.com/linux/centos/docker-ce.repo
+  with_items:
+    - docker-ce
+    - docek-ce-cli
+    - containerd.io
