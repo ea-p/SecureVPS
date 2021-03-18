@@ -2,6 +2,6 @@
 # tasks file for docker
 - name: Prerequisites
   dnf:
-    name: docker-ce
+    name: docker
     state: latest
     enablerepo: https://download.docker.com/linux/centos/docker-ce.repo
