@@ -1,4 +1,4 @@
 ---
 # defaults file for firefly-iii-kubernetes
-firefly_k8s_DB_PASS: 
-firefly_k8s_APP_KEY: 
+firefly_k8s_DB_PASS: ''
+firefly_k8s_APP_KEY: ''
