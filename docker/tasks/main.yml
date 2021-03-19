@@ -14,3 +14,9 @@
   dnf:
     name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
     state: latest
+
+- name: Enable docker
+  systemd:
+    name: docker
+    state: started
+    enabled: yes 
