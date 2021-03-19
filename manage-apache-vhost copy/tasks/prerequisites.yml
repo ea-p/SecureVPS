@@ -1,4 +1,0 @@
-- name: "Ensure apache2 is installed."
-  apt:
-    name: apache2
-    state: latest

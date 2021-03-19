@@ -1,8 +1,0 @@
----
-# tasks file for manage-apache-vhost
-- name: "Ensure apache server, directory structure and custom scripts are present"
-  include_tasks: prerequisites.yml
-
-- name: "Manage vhosts."
-  include_tasks: manageVhosts.yml
-  loop: "{{ vhost_vars }}"

@@ -1,6 +1,0 @@
----
-# handlers file for manage-apache-vhost
-- name: "Restart apache"
-  service:
-    name: httpd
-    state: restarted

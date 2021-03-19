@@ -12,7 +12,7 @@
   replace:
     path: /root/firefly-iii-k8s/kustomization.yaml
     regexp: '^(\s\s-\sdb_password=)'
-    replace: "  - db_password={{ firefly_k8s_DB_PASS | default('CHANGEMECHANGEMECHANGEME') }}"
+    replace: "  - db_password={{ firefly_k8s_DB_PASS }}"
   tags:
     - secured
 
@@ -20,7 +20,7 @@
   replace:
     path: /root/firefly-iii-k8s/kustomization.yaml
     regexp: '^(\s\s-\sapp_key=)'
-    replace: "  - app_key={{ firefly_k8s_APP_KEY | default('fxNwH5fMRzvDc8VGpt8SbpB6hukCFaFC') }}"
+    replace: "  - app_key={{ firefly_k8s_APP_KEY }}"
   tags:
     - secured
 
