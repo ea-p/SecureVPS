@@ -2,7 +2,7 @@
 # tasks file for firefly-iii-kubernetes
 - name: Download the kubernetes installation files
   git:
-    repo: https://github.com/firefly-iii/kubernetes
+    repo: https://github.com/ea-p/kubernetes
     dest: /root/firefly-iii-k8s
     depth: '1'
   tags:
