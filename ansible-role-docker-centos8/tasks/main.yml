@@ -4,22 +4,26 @@
   command: 'dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo'
   become: yes
   become_user: root
+  tags: docker
 
 - name: Uninstall any podman-docker
   dnf:
     name: docker
     state: absent
+  tags: docker
 
 - name: Install docker
   dnf:
     name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
     state: latest
+  tags: docker
 
 - name: Enable and start docker
   systemd:
     name: docker
     state: started
     enabled: yes 
+  tags: docker
 
 - name: Install portainer agent
   docker:
@@ -37,3 +41,4 @@
       - source: /var/lib/docker/volumes
         target: /var/lib/docker/volumes
         type: bind
+  tags: docker
