@@ -20,3 +20,20 @@
     name: docker
     state: started
     enabled: yes 
+
+- name: Install portainer agent
+  docker:
+    name: portainer_agent
+    image: portainer/agent
+    state: reloaded
+    pull: always
+    restart_policy: always
+    ports:
+      - "9513:9001"
+    mounts:
+      - source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        type: bind
+      - source: /var/lib/docker/volumes
+        target: /var/lib/docker/volumes
+        type: bind
