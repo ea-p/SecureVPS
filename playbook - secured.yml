@@ -6,4 +6,4 @@
       - MediaWiki
       - wordpress
       - cockpit-centos8
-      - firefly-iii
+      - ansible-role-docker-centos8
