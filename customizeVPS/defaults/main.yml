@@ -6,3 +6,4 @@ tools:
     - tar
     - bind-utils
     - jq
+    - snapd
