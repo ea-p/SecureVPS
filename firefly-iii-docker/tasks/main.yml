@@ -17,7 +17,7 @@
     - fireflyiii
 
 - name: Compose firefly
-  community.docker.docker_compose:
+  docker_compose:
     project_src: /tmp/firefly_iii_docker/
     recreate: smart
   tags:
