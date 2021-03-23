@@ -36,7 +36,7 @@
 
 - name: Open port 8513
   firewalld:
-    port: 8513
+    port: 8513/tcp
     permanent: yes
     state: enabled
   become: true
