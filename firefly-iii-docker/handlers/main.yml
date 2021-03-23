@@ -1,2 +1,10 @@
 ---
 # handlers file for firefly-iii-docker
+- name: "Restart firewalld"
+  service:
+    name: "firewalld"
+    state: "restarted"
+  become: yes
+  become_user: "root"
+  tags:
+    - fireflyiii

@@ -1,2 +1,31 @@
 ---
 # defaults file for firefly-iii-docker
+  firefly_iii_APP_DEBUG: true
+  firefly_iii_OWNER_EMAIL: mail@example.com
+  firefly_iii_APP_KEY: SomeRandomStringOf32CharsExactly
+  firefly_iii_DEFAULT_LANGUAGE: en_US
+  firefly_iii_DEFAULT_LOCALE: equal
+  firefly_iii_TZ: Europe/Amsterdam
+  firefly_iii_TRUSTED_PROXIES: ''
+  firefly_iii_APP_LOG_LEVEL: notice
+  firefly_iii_AUDIT_LOG_LEVEL: info
+  firefly_iii_DB_CONNECTION: mysql
+  firefly_iii_DB_HOST: fireflyiiidb
+  firefly_iii_DB_PORT: 3306
+  firefly_iii_DB_DATABASE: firefly
+  firefly_iii__DB_USERNAME: firefly
+  firefly_iii_DB_PASSWORD: secret_firefly_password
+  firefly_iii_MAIL_MAILER: log
+  firefly_iii_MAIL_HOST: null
+  firefly_iii_MAIL_PORT: ''
+  firefly_iii_MAIL_FROM: changeme@example.com
+  firefly_iii_MAIL_USERNAME: null
+  firefly_iii_MAIL_PASSWORD: null
+  firefly_iii_MAIL_ENCRYPTION: null
+
+  fireflyiii_vhost:
+    - website_domain: firefly.example.com
+      listened_port: '80'
+      enable: yes
+      proxy: yes
+      proxy_target: localhost:8080

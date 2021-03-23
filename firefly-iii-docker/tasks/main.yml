@@ -1,2 +1,58 @@
 ---
 # tasks file for firefly-iii-docker
+- name: Pull the docker compose files from github
+  git:
+    repo: https://github.com/ea-p/docker
+    dest: /tmp/firefly_iii_docker/
+  tags: 
+    - fireflyiii
+
+- name: Copy custom .env file to same location
+  template:
+    src: .env.j2
+    dest: /tmp/firefly_iii_docker/.env
+  become: yes
+  become_user: "root"
+  tags: 
+    - fireflyiii
+
+- name: Compose firefly
+  community.docker.docker_compose:
+    project_src: /tmp/firefly_iii_docker/
+    recreate: smart
+  tags:
+    - fireflyiii
+  become: yes
+  become_user: "root"
+
+- name: Open port 8513
+  firewalld:
+    port: 8513
+    permanent: yes
+    state: enabled
+  become: true
+  become_user: "root"
+  notify: "Restart firewalld"
+  tags: 
+    -  fireflyiii
+
+
+- name: Create vhost for firefly
+  include_role: 
+    name: manage-apache-vhost
+    apply:
+        tags: fireflyiii
+  vars:
+    - vhost_vars: "{{ fireflyiii_vhost }}"  
+  tags: fireflyiii
+
+  
+
+- name: "Delete tmp files."
+  file:
+    path: "/tmp/firefly_iii_docker"
+    state: "absent"
+  tags: 
+    - fireflyiii
+   
+  
