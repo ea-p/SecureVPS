@@ -29,8 +29,7 @@
   docker_swarm_service:
     name: portainer_agent
     image: portainer/agent
-    state: reloaded
-    pull: always
+    mode: global
     restart_policy: always
     publish:
       - mode: host
