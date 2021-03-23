@@ -19,8 +19,41 @@
     name: snapd
     state: started
     enabled: yes
+  become: yes
+  become_user: "root"
   tags:
     - secured
+
+- name: "Ensure snapd is updated"
+  snap:
+    name: core
+    state: present
+  become: yes
+  become_user: "root"
+  tags:
+    - secured
+
+
+- name: "Ensure snap core is refreshed"
+  shell: 'snap refresh core'
+  become: yes
+  become_user: "root"
+  tags:
+    - secured
+
+- name: "Install certbot"
+  snap:
+    name: certbot
+    classic: yes
+  become: yes
+  become_user: "root"
+
+- name: "Link certbot executable from snapd to usr."
+  file:
+    src: /snap/bin/certbot
+    dest: /usr/bin/certbot
+    state: link
+
 
 - name: "Install nodejs"
   include_role: 
