@@ -26,20 +26,5 @@
   tags: docker
 
 - name: Install portainer agent
-  docker_swarm_service:
-    name: portainer_agent
-    image: portainer/agent
-    mode: global
-    restart_policy: any
-    publish:
-      - mode: host
-        target_port: 9513
-        published_port: 9001
-    mounts:
-      - source: /var/run/docker.sock
-        target: /var/run/docker.sock
-        type: bind
-      - source: /var/lib/docker/volumes
-        target: /var/lib/docker/volumes
-        type: bind
+  shell: 'docker run -d -p 9513:9001 --name portainer_agent --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/volumes:/var/lib/docker/volumes portainer/agent'
   tags: docker
