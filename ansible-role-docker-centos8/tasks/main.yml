@@ -30,7 +30,7 @@
     name: portainer_agent
     image: portainer/agent
     mode: global
-    restart_policy: always
+    restart_policy: any
     publish:
       - mode: host
         target_port: 9513
