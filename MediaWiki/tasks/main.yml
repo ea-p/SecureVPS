@@ -12,8 +12,6 @@
         mediawiki
   tags: mediawiki
 
-  tags: mediawiki
-
 - name: "Install Apache 2.4.35+"
   include_role: 
     name: ansible-role-apache
