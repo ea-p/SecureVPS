@@ -32,8 +32,10 @@
     state: reloaded
     pull: always
     restart_policy: always
-    ports:
-      - "9513:9001"
+    publish:
+      - mode: host
+        target_port: 9513
+        published_port: 9001
     mounts:
       - source: /var/run/docker.sock
         target: /var/run/docker.sock
