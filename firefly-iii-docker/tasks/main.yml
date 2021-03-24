@@ -57,11 +57,11 @@
 
   
 
-- name: "Delete tmp files."
-  file:
-    path: "/tmp/firefly_iii_docker"
-    state: "absent"
-  tags: 
-    - fireflyiii
+#- name: "Delete tmp files."
+#  file:
+#    path: "/tmp/firefly_iii_docker"
+#    state: "absent"
+#  tags: 
+#    - fireflyiii
    
   
