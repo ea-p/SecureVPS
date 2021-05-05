@@ -1,5 +1,5 @@
 
-    - hosts: theblackhost_secured
+    - hosts: all
       roles:
       - SecureVPS
       - customizeVPS
