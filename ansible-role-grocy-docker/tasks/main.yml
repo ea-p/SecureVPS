@@ -12,8 +12,8 @@
 
 - name: "Create vhost for groxy"
   include_role: manage-apache-vhost
-    apply:
-      tags:
+  apply:
+    tags:
         - grocy
   vars:
     - vhost_vars: "{{ vhost_vars_grocy }}"
