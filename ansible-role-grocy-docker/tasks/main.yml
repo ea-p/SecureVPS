@@ -1,0 +1,21 @@
+---
+# tasks file for ansible-role-grocy-docker
+- name: "Install prerequisits"
+  import_tasks: prerequisites.yml
+  apply:
+    tags:
+      - grocy
+  tags: grocy
+
+- name: "Start the docker"
+  command: "docker run -d --name=grocy -e PUID={{ grocy.data_folder_owner }} -e PGID={{ grocy.data_folder_group }} -e TZ={{ grocy.timezone }} -p {{ grocy.port }}:80 -v {{ grocy.data_folder }} --restart unless-stopped ghcr.io/linuxserver/grocy"
+
+- name: "Create vhost for groxy"
+  include_role: manage-apache-vhost
+    apply:
+      tags:
+        - grocy
+  vars:
+    - vhost_vars: "{{ vhost_vars_grocy }}"
+  tags:
+    - grocy

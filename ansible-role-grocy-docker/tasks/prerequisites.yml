@@ -1,0 +1,19 @@
+- name: Make sure docker is installed
+  include_role:
+    name: "ansible-role-docker-centos8"
+  become: yes  
+  aplly:
+    tags:
+      - grocy
+  tags:
+    - grocy
+
+- name: Create data folder
+  file:
+    path: "{{ grocy.data_folder }}"
+    state: directory
+    owner: "{{ grocy.data_folder_owner }}"
+    group: "{{ grocy.data_folder_group }}"
+  become: yes  
+  tags:
+    - grocy
