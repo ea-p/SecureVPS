@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-role-grocy-docker
 grocy:
-  - data_folder: "/etc/grocy/data"
+    data_folder: "/etc/grocy/data"
     data_folder_owner: 1000
     data_folder_group: 1000
     port: 
