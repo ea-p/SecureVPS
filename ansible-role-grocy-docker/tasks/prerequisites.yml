@@ -1,10 +1,10 @@
 - name: Make sure docker is installed
   include_role:
     name: "ansible-role-docker-centos8"
+    apply:
+      tags:
+        - grocy
   become: yes  
-  aplly:
-    tags:
-      - grocy
   tags:
     - grocy
 
