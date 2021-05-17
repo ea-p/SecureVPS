@@ -2,9 +2,9 @@
 # tasks file for ansible-role-grocy-docker
 - name: "Install prerequisits"
   import_tasks: prerequisites.yml
-  apply:
-    tags:
-      - grocy
+    apply:
+      tags:
+        - grocy
   tags: grocy
 
 - name: "Start the docker"
