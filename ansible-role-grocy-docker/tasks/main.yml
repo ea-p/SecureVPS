@@ -16,6 +16,6 @@
     tags:
         - grocy
   vars:
-    - vhost_vars: "{{ vhost_vars_grocy }}"
+    - vhost_vars: "{{ grocy_vhost_vars_play }}"
   tags:
     - grocy
