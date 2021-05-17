@@ -9,7 +9,7 @@
   tags: grocy
 
 - name: "Start the docker"
-  command: "docker run -d --name=grocy -e PUID={{ grocy.data_folder_owner }} -e PGID={{ grocy.data_folder_group }} -e TZ={{ grocy.timezone }} -p {{ grocy.port }}:80 -v {{ grocy.data_folder }} --restart unless-stopped ghcr.io/linuxserver/grocy"
+  command: "docker run -d --name=grocy -e PUID={{ grocy.data_folder_owner }} -e PGID={{ grocy.data_folder_group }} -e TZ={{ grocy.timezone }} -p {{ grocy.port }}:80 -v {{ grocy.data_folder }}:/config --restart unless-stopped ghcr.io/linuxserver/grocy"
   tags:
     - grocy
 
