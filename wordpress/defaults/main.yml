@@ -6,7 +6,7 @@
 wordpress_data_path: ''
 # Variables for the vhost
 wordpress_vhost:
-    - website_domain: 
+    - website_domain: ''
       listened_port: '80'
       enable: yes    
 
