@@ -13,7 +13,7 @@
   firefly_iii_DB_HOST: fireflyiiidb
   firefly_iii_DB_PORT: 3306
   firefly_iii_DB_DATABASE: firefly
-  firefly_iii__DB_USERNAME: firefly
+  firefly_iii_DB_USERNAME: firefly
   firefly_iii_DB_PASSWORD: secret_firefly_password
   firefly_iii_MAIL_MAILER: log
   firefly_iii_MAIL_HOST: null
