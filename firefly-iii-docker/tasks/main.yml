@@ -28,6 +28,7 @@
 - name: Compose firefly
   docker_compose:
     project_src: /tmp/firefly_iii_docker/
+    files: docker-compose-csv.yml
     recreate: smart
   tags:
     - fireflyiii
