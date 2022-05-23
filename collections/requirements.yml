@@ -1,8 +1,10 @@
-- name: community.general
-- name: community.docker
-- name: community.kubernetes
-- name: community.mongodb
-- name: community.network
-- name: community.mysql
-- name: community.postgresql
-- name: ansible.posix
+---
+collections:
+  - name: community.general
+  - name: community.docker
+  - name: community.kubernetes
+  - name: community.mongodb
+  - name: community.network
+  - name: community.mysql
+  - name: community.postgresql
+  - name: ansible.posix
