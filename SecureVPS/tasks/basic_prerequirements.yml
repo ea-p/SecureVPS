@@ -1,33 +1,41 @@
-  - name: "Install dnf"
-    yum:
-      name: "dnf"
-      state: "latest"
-    tags: basic
-  
-  - name: "Update OS"
-    dnf:
-      name: "*"
-      state: "latest"
-    tags: basic
-  
-  - name: "Install EPEL repo"
-    include_role: 
-      name: ansible-role-epel
-      apply:
-        tags: basic
-    tags: basic
-    ignore_errors: no
+- name: "Install dnf"
+  yum:
+    name: "dnf"
+    state: "latest"
+  tags: basic
 
-  - name: "Install Remi repo"
-    include_role: 
-      name: ansible-role-repo-remi
-      apply:
-        tags: basic
-    tags: basic
-    ignore_errors: no
+- name: "Update OS"
+  dnf:
+    name: "*"
+    state: "latest"
+  tags: basic
+
+- name: "Install EPEL repo"
+  include_role:
+    name: ansible-role-epel
+    apply:
+      tags: basic
+  tags: basic
+  ignore_errors: no
+
+- name: "Install Remi repo"
+  include_role:
+    name: ansible-role-repo-remi
+    apply:
+      tags: basic
+  tags: basic
+  ignore_errors: no
 
 # only needed for EPEL v8
-  - name: "Activate PowerTools repo"  
-    command: "dnf config-manager --set-enabled powertools"
-    ignore_errors: no
-    tags: basic
+- name: "Activate PowerTools repo"
+  command: "dnf config-manager --set-enabled powertools"
+  ignore_errors: no
+  tags: basic
+
+- name: "Install all tools used"
+  dnf:
+    name: "{{ tools }}"
+    state: "present"
+  become: yes
+  become_user: "root"
+  tags: basic

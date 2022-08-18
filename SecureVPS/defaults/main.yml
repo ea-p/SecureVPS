@@ -1,25 +1,25 @@
 ---
 # defaults file for SecureVPS
-user_vars: 
+user_vars:
   - username: ""
     groups: ""
     append_groups: ""
     create: ""
     delete: ""
-    keyname: "" 
+    keyname: ""
 
-# Usage: copy below block into user_vars, delete comments and populate:    
+# Usage: copy below block into user_vars, delete comments and populate:
 # - user1:            - increment this
 #   username: ""      - Username of the user
 #   groups: ""        - All the groups the user should be part of
 #   append_group:     - 'no' - if to remove from all groups except from above | default 'yes'
-#   use_sudo:         - 'yes' - if user should be in sudoers group  
+#   use_sudo:         - 'yes' - if user should be in sudoers group
 #   create:           - 'absent' - if you want to delete user \ default 'present'
 #   delete:           - 'yes' - if you want to delete the user, needs 'create' to be no to work | default 'no'
 #   keyname:          - Public key of the user
 
 # Set the custom ssh port here - carefull, this needs to be changed in inventory as well after.
-ssh_port: 
+ssh_port:
 
 fail2ban_safe_ip: 127.0.0.1
 fail2ban_bantime: ""
@@ -30,3 +30,11 @@ firewalld_settings:
   - port: "{{ ssh_port }}/tcp"
     permanent: yes
     state: enabled
+
+tools:
+  - nano
+  - git
+  - tar
+  - bind-utils
+  - jq
+  - snapd
